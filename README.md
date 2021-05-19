@@ -85,7 +85,10 @@ Encouragements materials are based on
 
 
 
+
+
 ---
 
 **As part of Coder Academy FX21-01 T1A3 Assignment**
-*Crafted with ❤  by a-sh   –  Angie SH (a.k.a Angeline S Hentri)*
+
+Crafted with ❤  by a-sh   –  Angie SH (a.k.a Angeline S Hentri)*
