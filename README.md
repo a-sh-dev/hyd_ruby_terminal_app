@@ -2,7 +2,7 @@
 
 GitHub repo:
 
-`https://github.com/a-sh-dev/----TO BE UPDATED!!!`
+`https://github.com/a-sh-dev/hyd_terminal_app`
 
 --- place final product screenshot here
 
@@ -31,7 +31,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 - Log is created and saved under a user's unique name/nickname to prevent potential duplicates and also to provide privacy
 - Log entry details include date, day and time of use
 - The last 7 entries of the log is displayed after the '*entertainment*' part and just before quitting the app
-  - The log entries are for display only and immutable
+  - The log entries are for display only and are immutable once stored
 - Log keeps track on the user's feeling category before and after using the app and the app will respond to the user accordingly before it quits
   - Two categories at the start of the app (before):
     - *Alert/Concern*: sad / stress / angry
@@ -40,7 +40,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
     - *Alert/Concern*: worse
     - Same-same (is considered as alert/concern category based on the first entry) 
     - *Normal*: better
-- When the user's feeling is in *Alert/Concern* category, after the log is displayed, a mental health facts and advice will be displayed before exiting the app, then a helpline number is also displayed.
+- When the user's feeling is in the *Alert/Concern* category, after the log is displayed, a mental health facts and advice will be displayed subsequently before exiting the app, including a helpline number
   - The mental health facts and advice will be catered according to the specific user's feeling: sad / stress / angry
 
 #### Entertainment
@@ -48,13 +48,13 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 ##### *"How about a laugh?"* 
 
 - Randomise dad jokes
-  - The user can randomise as many times they want
+  - The user can generate jokes multiple times
   - Content can be spoken out (speech/speak features)
   - User has the option to switch to the other entertainment
   - Ideal back-end features:
 
-    - Possibility to deactivate the jokes that appear too much and then be re-activated at specific period of time, to reduce too much repetition
-    - Possibility for external contents update 
+    - Possibility to deactivate the jokes that appear too much and then be re-activated at specific period of time, to reduce repetition
+    - Possibility for external contents update (API implementation)
 
 ##### *"How about an encouragement?"*
 
@@ -76,9 +76,9 @@ The user is asked to enter a unique name or nickname to be used to login next ti
 
 - If name exists, the user is asked to choose 
 
-User then is welcomed with their name and asked, "*How you doin (feeling), today?"*
+User then is greeted with their name and asked, "*How you doin (feeling), today?"*
 
-Other than to provide relief and entertainment to the user, the app also functions to track the user's feeling. There are two entry points for keeping track, below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
+Other than to provide relief and entertainment to the user, the app also functions to track the user's feeling. There are two entry points for keeping track of 'today's entry', below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
 
 There are two categories of feelings that the user can choose (the two category names are not visible to the user, only for back-end purpose):
 
@@ -91,11 +91,11 @@ There are two categories of feelings that the user can choose (the two category 
   - Just OK
   - Happy
 
-The main Entertainment info and options are displayed:
+The two main Entertainment info and options are displayed:
 
 - ***How about a laugh?***
   - When chosen, a male speech/speak function can be enabled to read out the joke
-  - A dad joke is displayed, and if it is a dad joke question, the answer is revealed after a few seconds 
+  - A (randomised) dad joke is displayed, and if it is a dad joke question, the answer is revealed after a few seconds delay
   - Every joke will prompt a response:
     - 🙁  😐  😆
   - Subsequenty, three options are available:
@@ -122,6 +122,10 @@ If the user's current feeling is in the *alert/concern* category, a mental healt
 - A helpline number is also displayed
 
 A thank you for using the app is displayed with short copyright and credit info. The app will automatically exit in a few seconds.
+
+##### HYD Data Structure Flowchart
+
+![HYD data structure flowchart](./docs/hyd_app_data_flow.png)
 
 ### Enhancements
 
