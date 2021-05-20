@@ -20,7 +20,7 @@ GitHub repo:
 
 The app also features to record a log of how the user is doing (feeling) when and after using it to track their mental wellbeing.
 
-HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), but hopefully, HYD can provide relief, comfort, or at least a smile and make the user feel better.
+HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), they may groan, but at least they respond to it! And hopefully, HYD can provide some sort of relief, comfort, or at least a smile and make the user feel better, and then respond to any negative feelings they are currently facing positively. 
 
 The tone of the app is positive, chill and friendly. The chosen words throughout the app will be sensitive and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
 
@@ -64,7 +64,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 
 ##### Control Flowchart
 
-![HYD control flowchart](/Users/a-sh/Desktop/_CODE/Assignments/T1A3 - Terminal App/public/docs/hyd_app_flow.png)
+![HYD control flowchart](./docs/hyd_app_flow.png)
 
 
 
