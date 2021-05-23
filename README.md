@@ -1,10 +1,12 @@
-# "How You Doin? 🙂" Terminal Application
+# *"How You Doin?"* Terminal Application
 
 GitHub repo:
 
 `https://github.com/a-sh-dev/hyd_terminal_app`
 
 --- place final product screenshot here
+
+
 
 ## Installation & Setup
 
@@ -16,17 +18,23 @@ GitHub repo:
 
 ### Purpose
 
+**Defining the problem. **Not every day is filled with rainbows and birds chirping in your surroundings. People do have bad days, feel down, sad, discouraged or simply bored. When they are not feeling positive, *it is OK to be not OK*, it is part of being human that we have emotions. 
+
 ***How You Doin?*** (HYD) is a terminal app that aims to provide entertainment to the user, in the form of jokes (dad jokes to be specific 🙂) and also positive encouragements as a relief or comfort when they are feeling unwell emotionally.   
 
-The app also features to record a log of how the user is doing (feeling) when and after using it to track their mental wellbeing.
+HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh or smile every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), they may groan, but at least they *respond* to it! And hopefully, HYD can provide some sort of relief, comfort, or at least a smile and make the user feel better, and then motivates the user to *respond* to any negative feelings they are currently facing, positively. 
 
-HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), they may groan, but at least they respond to it! And hopefully, HYD can provide some sort of relief, comfort, or at least a smile and make the user feel better, and then respond to any negative feelings they are currently facing positively. 
+![Joey - How you doin?](./docs/hyd_joey.gif)
 
-The tone of the app is positive, chill and friendly. The chosen words throughout the app will be sensitive and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
+The app also features to record a log of how the user is doing (feeling) when and after using it, so they can track their own mental wellbeing. When needed, HYD also responds to the user by providing mental health facts and advice as their call to action. 
 
-### General Features
+### Target Audience
 
-#### Record a log of *<u>how user is doing (feeling)</u>* before and after using the app
+Ideally anyone in their 20s to above, who can read English, who is bored or having a bad day, who needs relief and entertainment, who definitely appreciate dad jokes!
+
+### Features
+
+#### Feature 1: Record a log of *<u>how user is doing (feeling)</u>* before and after using the app
 
 - Log is created and saved under a user's unique name/nickname to prevent potential duplicates and also to provide privacy
 - Log entry details include date, day and time of use
@@ -43,9 +51,9 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 - When the user's feeling is in the *Alert/Concern* category, after the log is displayed, a mental health facts and advice will be displayed subsequently before exiting the app, including a helpline number
   - The mental health facts and advice will be catered according to the specific user's feeling: sad / stress / angry
 
-#### Entertainment
+#### Feature 2: Entertainment
 
-##### *"How about a laugh?"* 
+##### Feature 2.1 – *"How about a laugh?"* 
 
 - Randomise dad jokes
   - The user can generate jokes multiple times
@@ -56,7 +64,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
     - Possibility to deactivate the jokes that appear too much and then be re-activated at specific period of time, to reduce repetition
     - Possibility for external contents update (API implementation)
 
-##### *"How about an encouragement?"*
+##### Features 2.2 –*"How about an encouragement?"*
 
 - Same features as above
 
@@ -65,8 +73,6 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 ##### Control Flowchart
 
 ![HYD control flowchart](./docs/hyd_app_flow.png)
-
-
 
 ##### Pseudocode
 
@@ -103,8 +109,11 @@ The two main Entertainment info and options are displayed:
     - How about an encouragement?
     - Call it a day
 - ***How about an encouragement?***
-  - Generally the same as above, except a female speech/speak function can be enabled to read out the encouragement
-  - Under the three available options, the second option will be How about a laugh?
+  - Generally the same as above, except a female speech/speak function can be enabled to read out the encouragement and also the exception of response prompting to every encouragement (with the smileys)
+  - Subsequenty, three options are available:
+    - More laugh
+    - How about a laugh?
+    - Call it a day
 
 When the user calls it a day, the last entry point is prompted to update how their feeling, after displaying *"So, user_name... How you doing (feeling) now?"*
 
@@ -127,17 +136,21 @@ A thank you for using the app is displayed with short copyright and credit info.
 
 ![HYD data structure flowchart](./docs/hyd_app_data_flow.png)
 
-### Enhancements
+### User Interface, Interaction & Enhancements
 
-#### Ruby Gems Files
+The tone of the app is positive, chill and friendly. The chosen words throughout the app will be sensitive and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
 
-- Easy navigation - up and down arrow navigations *(TTY prompt)*
-- ASCII art generator for each page *(Artii)*
-- Tables implementations for displaying log entries *(Terminal-table)*
-- Colors *(Rainbow)*
-- Animated feature to show automatic display or closing?
+#### Ruby Gems Files Implementations 
 
-### Limitations
+1. Easy navigation - up and down arrow navigations *(TTY prompt)*
+2. ASCII art generator for each page *(Artii)*
+3. Tables implementations for displaying log entries *(TTY Table)*
+4. TTY Box
+5. Speak/Speech
+6. Colors *(Rainbow)*
+7. JSON
+
+### Limitations & Future Development Plan
 
 - At later version
 
