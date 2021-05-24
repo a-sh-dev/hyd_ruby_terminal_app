@@ -143,7 +143,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 #### Ruby Gems Files Implementations 
 
 1. Easy navigation - up and down arrow navigations *(TTY prompt)*
-2. ASCII art generator for each page *(Artii)*
+2. ASCII art generator for each page *(TTY font)*
 3. Tables implementations for displaying log entries *(TTY Table)*
 4. TTY Box
 5. Speak/Speech

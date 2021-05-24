@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    artii (2.1.2)
     json (2.5.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
@@ -37,12 +38,12 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  artii (~> 2.1)
   json (~> 2.5)
   rainbow (~> 3.0)
   tty-box (~> 0.7.0)
   tty-font (~> 0.5.0)
   tty-prompt (~> 0.23.1)
-  tty-screen (~> 0.8.1)
   tty-table (~> 0.12.0)
 
 BUNDLED WITH
