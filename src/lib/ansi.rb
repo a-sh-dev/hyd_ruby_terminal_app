@@ -36,7 +36,7 @@ def ansi_hello(text)
   puts Rainbow(text).color("C5AEEE")  
 end
 
-ansi_hello(takecare)
+
 
 # color list (HEX):
 # Calm Light Green - color("8DEEA6")

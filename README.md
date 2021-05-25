@@ -34,11 +34,13 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 ### Features
 
-#### Feature 1: Record a log of *<u>how user is doing (feeling)</u>* before and after using the app
+#### Feature 1: Record User's Log
 
-- Log is created and saved under a user's unique name/nickname to prevent potential duplicates and also to provide privacy
+##### Feature 1.1 – *Record* a log of *<u>how user is doing (feeling)</u>* before and after using the app
+
+- Log is created, saved and retrievable under a user's unique name/nickname to prevent potential duplicates and also to provide privacy
 - Log entry details include date, day and time of use
-- The last 7 entries of the log is displayed after the '*entertainment*' part and just before quitting the app
+- The last 5 entries of the log is displayed after the '*entertainment*' part and just before exiting the app
   - The log entries are for display only and are immutable once stored
 - Log keeps track on the user's feeling category before and after using the app and the app will respond to the user accordingly before it quits
   - Two categories at the start of the app (before):
@@ -48,6 +50,9 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
     - *Alert/Concern*: worse
     - Same-same (is considered as alert/concern category based on the first entry) 
     - *Normal*: better
+
+##### Feature 1.2 – *Respond* to the user with how they're doing (feeling)
+
 - When the user's feeling is in the *Alert/Concern* category, after the log is displayed, a mental health facts and advice will be displayed subsequently before exiting the app, including a helpline number
   - The mental health facts and advice will be catered according to the specific user's feeling: sad / stress / angry
 
@@ -80,8 +85,6 @@ At the start of the app, a welcome and general app info (what it is and how to u
 
 The user is asked to enter a unique name or nickname to be used to login next time and to access their log (at this point, password is not available yet).
 
-- If name exists, the user is asked to choose 
-
 User then is greeted with their name and asked, "*How you doin (feeling), today?"*
 
 Other than to provide relief and entertainment to the user, the app also functions to track the user's feeling. There are two entry points for keeping track of 'today's entry', below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
@@ -103,7 +106,7 @@ The two main Entertainment info and options are displayed:
   - When chosen, a male speech/speak function can be enabled to read out the joke
   - A (randomised) dad joke is displayed, and if it is a dad joke question, the answer is revealed after a few seconds delay
   - Every joke will prompt a response:
-    - 🙁  😐  😆
+    - 🙁  😆
   - Subsequenty, three options are available:
     - More laugh
     - How about an encouragement?

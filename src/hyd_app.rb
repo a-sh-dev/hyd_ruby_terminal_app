@@ -1,18 +1,19 @@
 # Welcome message greeting
 require_relative './lib/ansi.rb'
 
+# current dash count = 55 characters
 def linebreak
-  puts "------------------------------------------------"
+  puts "-------------------------------------------------------"
 end
 
 # ------------------------------
 #* MAIN 
 # ------------------------------
 
-
 def greeting
   system "clear"
   linebreak
+  # replace with Artii
   puts "Hello!"
   linebreak
   puts "Welcome to the 'How You Doin?' (HYD) app."
@@ -27,55 +28,55 @@ print "Choose a nickname >> "
 username = gets.strip.downcase 
 
 # Load / Create user -- fetch any existing user
-def respond_user(username)
+def respond_to_user(username)
   name = username.capitalize
   linebreak
   # If new user, display new_welcome
-  puts "(new) Hello, #{name}!\nGlad that you're here!" 
+  puts "(new) Hello, #{name}! Glad that you're here!" 
   linebreak
-  # For existing user, display welcome_back
-  puts "(existing) Hello, #{name}!\nWelcome back, glad that you're here!"
+  puts "Every time you use this app,\na log will be created to check on how you doin.\nThe log is only accessible by you. So, make sure\nto remember the name you've entered!"
+  # Else existing user, display welcome_back
+  puts "(existing) Welcome back, #{name}!\nGlad to see you again!"
 end
 
-respond_user(username)
+respond_to_user(username)
 
-# Display info for log entry
-def log_info
-  linebreak
-  puts "Every time you use this app,\n
-  a log will be created to check on how you doin.\n
-  The log is only accessible by you. So, make sure\n
-  to remember the name you've entered!"
-  # Ask how user's doing
-  linebreak
-  puts "Anyway... How you doin (feeling) today, #{username}?"
-end
-
-# Today's log entry
-today = []
-alert = []
+# User's today log entry
+# {day: x, date: dd/mm/yy, before: "x", after: "x"}
+user_today = []
+# If sad / stress / angry
+alert = [:sad, :stress, :angry]
+user_alert = []
 
 # Options for user
 # Store today's first entry in a hash
-def log_first_entry
-  # entry = {day: x, date: dd/mm/yy, before: "x", after: "x"}
-  # background entry : day | dd/mm/yy
+def log_entry
+  linebreak
+  puts "So, how you doin (feeling) today, #{username}?"
+  # back-end entry : day | dd/mm/yy {day: x, date: dd/mm/yy}
   
   # Options 
   # ALERT: - sad - stress - angry
 
+  # if in ALERT, store it in the alert array
+
   # NORMAL: - bored - just ok - happy
-  
+
+  # store all data in the today's array (:before)
 end
 
 # Display recognising info
-def respond_log_before
+def respond_to_log_before
   linebreak
-  puts "You've recognised how you're feeling today.\n
-  That's a good start!"
+  # if alert : sad / stress / angry
+  puts "That must be really hard for you."
+  puts "It's OK to be not OK."
+  puts "You've recognised how you're feeling today, and\nthat's a good start! Hope you will feel better soon!" 
+  # else : normal category
+  puts "Get ready for an entertainment!"
 end
 
-respond_log_before
+respond_to_log_before
 
 # ------------------------------
 #* ENTERTAINMENT
@@ -85,16 +86,20 @@ respond_log_before
 linebreak
 puts "Now, please choose from the following options:"
 linebreak
-puts "Let some dad jokes entertain you!"
-# 1. How about a laugh?
-
-# Not in the mood to laugh?
-# 2. How about an encouragement?
+# option 1
+# puts "Let some dad jokes entertain you!"
+puts "1. How about a laugh?"
+# option 2
+# puts "Not in the mood to laugh?"
+puts "2. How about an encouragement?"
+# ask user input
 
 
 #* Randomise laugh / entertainment
 
-# Get response ☺ | ☹
+# Implement json load -- and randomise jokes
+
+# Get response ☺ | ☹ -- is this needed?
 
 # Options on every random output
 # > More
@@ -121,4 +126,12 @@ puts "Let some dad jokes entertain you!"
 # Randomise mhealth display
 # Display helpline
 
-# Bye message
+# ------------------------------
+#* BYE
+# ------------------------------
+linebreak
+puts "Thank you for using the HYD app."
+puts "See you next time, #{username}!"
+linebreak
+puts "For further info, please check the documentation."
+puts "Crafted with ❤ by a-sh. 2021"
