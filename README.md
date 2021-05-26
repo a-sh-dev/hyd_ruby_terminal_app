@@ -18,7 +18,7 @@ GitHub repo:
 
 ### Purpose
 
-**Defining the problem. **Not every day is filled with rainbows and birds chirping in your surroundings. People do have bad days, feel down, sad, discouraged or simply bored. When they are not feeling positive, *it is OK to be not OK*, it is part of being human that we have emotions. 
+**Defining the problem.** Not every day is filled with rainbows and birds chirping in your surroundings. People do have bad days, feel down, sad, discouraged or simply bored. When they are not feeling positive, *it is OK to be not OK*, it is part of being human that we have emotions. 
 
 ***How You Doin?*** (HYD) is a terminal app that aims to provide entertainment to the user, in the form of jokes (dad jokes to be specific 🙂) and also positive encouragements as a relief or comfort when they are feeling unwell emotionally.   
 
@@ -34,7 +34,7 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 ### Features
 
-#### Feature 1: Record User's Log
+#### Feature 1: User's Log
 
 ##### Feature 1.1 – *Record* a log of *<u>how user is doing (feeling)</u>* before and after using the app
 
@@ -75,11 +75,11 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 ### User Experience – How to Use
 
-##### Control Flowchart
+#### Control Flowchart
 
 ![HYD control flowchart](./docs/hyd_app_flow.png)
 
-##### Pseudocode
+#### Pseudocode
 
 At the start of the app, a welcome and general app info (what it is and how to use it) is displayed.
 
@@ -135,7 +135,7 @@ If the user's current feeling is in the *alert/concern* category, a mental healt
 
 A thank you for using the app is displayed with short copyright and credit info. The app will automatically exit in a few seconds.
 
-##### HYD Data Structure Flowchart
+#### HYD Data Structure Flowchart
 
 ![HYD data structure flowchart](./docs/hyd_app_data_flow.png)
 

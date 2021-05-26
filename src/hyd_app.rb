@@ -1,52 +1,21 @@
-# Welcome message greeting
-require_relative './lib/ansi.rb'
+require_relative './lib/respond'
+require_relative './lib/display'
+require_relative './lib/log'
+require_relative './lib/user'
 
-# current dash count = 55 characters
-def linebreak
-  puts "-------------------------------------------------------"
-end
 
 # ------------------------------
 #* MAIN 
 # ------------------------------
 
-def greeting
-  system "clear"
-  linebreak
-  # replace with Artii
-  puts "Hello!"
-  linebreak
-  puts "Welcome to the 'How You Doin?' (HYD) app."
-  puts "Before we begin, please enter a nickname\nthat you can remember easily next time."
-  linebreak
-end
-
-# Ask user for nickname
-greeting
-print "Choose a nickname >> "
-# Get user input
-username = gets.strip.downcase 
-
-# Load / Create user -- fetch any existing user
-def respond_to_user(username)
-  name = username.capitalize
-  linebreak
-  # If new user, display new_welcome
-  puts "(new) Hello, #{name}! Glad that you're here!" 
-  linebreak
-  puts "Every time you use this app,\na log will be created to check on how you doin.\nThe log is only accessible by you. So, make sure\nto remember the name you've entered!"
-  # Else existing user, display welcome_back
-  puts "(existing) Welcome back, #{name}!\nGlad to see you again!"
-end
-
-respond_to_user(username)
-
-# User's today log entry
-# {day: x, date: dd/mm/yy, before: "x", after: "x"}
-user_today = []
-# If sad / stress / angry
-alert = [:sad, :stress, :angry]
-user_alert = []
+# lib/display.rb
+display_greeting
+# get username
+print "  Choose a nickname >> "
+name_input = gets.strip.downcase
+username = User.new(name_input)
+# check new / existing user
+username.check
 
 # Options for user
 # Store today's first entry in a hash
@@ -66,7 +35,7 @@ def log_entry
 end
 
 # Display recognising info
-def respond_to_log_before
+def respond_to_log
   linebreak
   # if alert : sad / stress / angry
   puts "That must be really hard for you."
@@ -76,23 +45,25 @@ def respond_to_log_before
   puts "Get ready for an entertainment!"
 end
 
-respond_to_log_before
-
 # ------------------------------
 #* ENTERTAINMENT
 # ------------------------------
 
 # Options for Entertainment
-linebreak
-puts "Now, please choose from the following options:"
-linebreak
-# option 1
-# puts "Let some dad jokes entertain you!"
-puts "1. How about a laugh?"
-# option 2
-# puts "Not in the mood to laugh?"
-puts "2. How about an encouragement?"
-# ask user input
+def entertainment
+  linebreak
+  puts "Now, please choose from the following options:"
+  linebreak
+  # option 1
+  # puts "Let some dad jokes entertain you!"
+  puts "1. How about a laugh?"
+  # option 2
+  # puts "Not in the mood to laugh?"
+  puts "2. How about an encouragement?"
+  # ask user input
+  
+end
+
 
 
 #* Randomise laugh / entertainment
@@ -129,9 +100,5 @@ puts "2. How about an encouragement?"
 # ------------------------------
 #* BYE
 # ------------------------------
-linebreak
-puts "Thank you for using the HYD app."
-puts "See you next time, #{username}!"
-linebreak
-puts "For further info, please check the documentation."
-puts "Crafted with ❤ by a-sh. 2021"
+
+display_bye(username)
