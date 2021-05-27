@@ -101,4 +101,4 @@ end
 #* BYE
 # ------------------------------
 
-display_bye(username)
+username.bye

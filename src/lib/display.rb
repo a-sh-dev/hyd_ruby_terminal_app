@@ -2,6 +2,7 @@ require 'artii'
 require 'rainbow'
 require 'TTY-prompt'
 require_relative 'log'
+require_relative 'user'
 
 class Title
   
@@ -12,7 +13,7 @@ class Title
 
   # Title standard single line
   def title(heading)
-    system "clear"
+    # system "clear"
     title = @title_base.asciify(heading) 
     puts
     puts Rainbow(title).color("8DEEA6") 
@@ -20,7 +21,7 @@ class Title
 
   # Title 2 lines
   def title2l(line1, line2)
-    system "clear"
+    # system "clear"
     title1 = @title_base.asciify(line1) 
     title2 = @title_base.asciify(line2)
     title = title1 + "\n" + title2 
@@ -46,9 +47,9 @@ end
 #* UI Elements 
 # ------------------------------
 
-# current dash count = 55 characters
+# current dash count = 58 characters + 2 for spacing --> 60
 def linebreak
-  line = "  -------------------------------------------------------"
+  line = "  ----------------------------------------------------------"
   puts Rainbow(line).color("8DEEA6")
 end
 
@@ -58,7 +59,7 @@ def refresh
 end
 
 def app_header
-  linebreak
+  system "clear"
   logo = Title.new
   logo.title(" H Y D ?")
   linebreak
@@ -67,8 +68,6 @@ end
 # ------------------------------
 #* Display 
 # ------------------------------
-
-
 
 # Welcome message greeting
 def display_greeting
@@ -80,12 +79,6 @@ def display_greeting
   linebreak
 end
 
-# Exit message
-def display_bye(username)
-  linebreak
-  puts "  Thank you for using the HYD app."
-  puts "  See you next time, #{username}!"
-  linebreak
-  puts "  For further info, please check the documentation."
-  puts "  Crafted with ❤ by a-sh. © 2021"
+def display_refresh
+  
 end
