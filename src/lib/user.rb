@@ -12,15 +12,13 @@ class User
 
   def check
     # Existing user?
-    if File.exist?(@file_path)
-      File.open(@file_path, 'r')
-      app_header
+    if user_exists?
+      display_app_header
       puts "  Welcome back, #{@user_cap}!"
       puts "  Glad to see you again!"
     else # New user
-      file = File.new(@file_path, 'w')
-      file.close
-      app_header
+      user_new
+      display_app_header
       puts "  Glad that you're here, #{@user_cap}!" 
       puts "  Every time you use this app, a log is created and is only"
       puts "  accessible by you to check on how you doin. So, when you"
@@ -33,9 +31,14 @@ class User
     
   end
 
-  def user_exists
+  def user_exists?
     File.exist?(@file_path)
     File.open(@file_path, 'r')
+  end
+
+  def user_new
+    file = File.new(@file_path, 'w')
+    file.close
   end
 
   # Exit message

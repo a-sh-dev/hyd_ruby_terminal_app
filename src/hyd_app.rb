@@ -8,7 +8,6 @@ require_relative './lib/user'
 #* MAIN 
 # ------------------------------
 
-# lib/display.rb
 display_greeting
 # get username
 print "  Choose a nickname >> "

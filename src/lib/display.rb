@@ -58,7 +58,7 @@ def refresh
   # sleep(1)
 end
 
-def app_header
+def display_app_header
   system "clear"
   logo = Title.new
   logo.title(" H Y D ?")
@@ -71,7 +71,7 @@ end
 
 # Welcome message greeting
 def display_greeting
-  app_header
+  display_app_header
   puts "  Welcome to the 'How You Doin?' (HYD) app."
   linebreak
   puts "  Before we begin, please enter a nickname that"
