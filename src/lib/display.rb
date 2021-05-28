@@ -74,7 +74,7 @@ def display_greeting
   display_app_header
   puts "  Welcome to the 'How You Doin?' (HYD) app."
   linebreak
-  puts "  Before we begin, please enter a nickname that"
+  puts "  Before we begin, please enter a one-word nickname that"
   puts "  you can remember easily next time."
   linebreak
 end
