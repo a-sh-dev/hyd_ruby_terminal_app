@@ -15,8 +15,13 @@ name_input = gets.strip.downcase
 username = User.new(name_input)
 # check new / existing user
 username.check
+# ask user's feeling today (first entry)
+username.ask_today
 
-# Options for user
+entry_prompt = TTY::Prompt.new(active_color: :yellow)
+display_feelings_menu(entry_prompt)
+
+
 # Store today's first entry in a hash
 def log_entry
   linebreak
@@ -100,4 +105,4 @@ end
 #* BYE
 # ------------------------------
 
-username.bye
+# username.bye

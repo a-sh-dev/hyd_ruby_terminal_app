@@ -15,16 +15,16 @@ require_relative 'user'
 
 class Log
   # User's today log entry
-  attr_reader :time, :date, :day, :before, :after
+  attr_accessor :user_today
   
-  @@entry_no = 0
+  @@total_entry = 0
 
   def initialize
     @file_path = "./data/users/#{@user}.json"
-    @time
-    @user_today = []
+    @time = Time.new
+    @user_today = {}
     @user_alert = []
-    @@entry_no += 1
+    @@total_entry += 1
     
   end
   
@@ -36,7 +36,7 @@ class Log
     # If sad / stress / angry
     # date = Time.new
     # day = date.strftime('%a %d %b %Y')
-    today = Log.new
+    log = Log.new
   end
   
   # Add today's @user_today entry to json
