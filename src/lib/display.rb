@@ -83,23 +83,16 @@ def display_refresh
   
 end
 
+def wait_abit
+  sleep(0.5)
+end
+
 def wait
-  sleep(1)
+  sleep(1.25)
+end
+
+def wait_longer
+  sleep(1.5)
 end
 
 
-
-
-def display_feelings_menu(prompt)
-  choices = [
-    {name: "Bored", value: 1},
-    {name: "Just OK", value: 2},
-    {name: "Happy", value: 3},
-    {name: "Sad", value: 4},
-    {name: "Stress", value: 5},
-    {name: "Angry", value: 6}
-    ]
-  
-    ask = prompt.select("  I feel:", choices)
-    Rainbow(ask).color("8DEEA6")
-end

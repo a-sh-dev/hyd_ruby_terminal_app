@@ -5,7 +5,7 @@ require_relative './lib/user'
 
 
 # ------------------------------
-#* MAIN 
+#* GREETINGS & GET USER 
 # ------------------------------
 
 display_greeting
@@ -15,17 +15,19 @@ name_input = gets.strip.downcase
 username = User.new(name_input)
 # check new / existing user
 username.check
-# ask user's feeling today (first entry)
-username.ask_today
 
-entry_prompt = TTY::Prompt.new(active_color: :yellow)
-display_feelings_menu(entry_prompt)
+# ------------------------------
+#* ASK HOW USER'S DOIN  
+# ------------------------------
+
+username.ask_feeling
+username.display_feelings_menu
+
 
 
 # Store today's first entry in a hash
 def log_entry
-  linebreak
-  puts "So, how you doin (feeling) today, #{username}?"
+
   # back-end entry : day | dd/mm/yy {day: x, date: dd/mm/yy}
   
   # Options 

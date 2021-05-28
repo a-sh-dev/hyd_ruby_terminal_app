@@ -15,14 +15,15 @@ require_relative 'user'
 
 class Log
   # User's today log entry
-  attr_accessor :user_today
+  attr_accessor :user_today, :user_alert
+  attr_reader :time
   
   @@total_entry = 0
 
   def initialize
     @file_path = "./data/users/#{@user}.json"
     @time = Time.new
-    @user_today = {}
+    @user_today = []
     @user_alert = []
     @@total_entry += 1
     
@@ -32,16 +33,16 @@ class Log
     @@entry_no
   end
 
-  def create_today
-    # If sad / stress / angry
-    # date = Time.new
-    # day = date.strftime('%a %d %b %Y')
-    log = Log.new
-  end
+  # def create_today
+  #   # If sad / stress / angry
+  #   # date = Time.new
+  #   # day = date.strftime('%a %d %b %Y')
+  #   log = Log.new
+  # end
   
   # Add today's @user_today entry to json
   def merge_today_entry
-    json file << user_today
+    json file << @user_today
   end
   
   # Display 5 last entries, load from json
