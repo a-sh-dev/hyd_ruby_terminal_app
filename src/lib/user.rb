@@ -1,6 +1,7 @@
 require 'colorize'
 require 'rainbow'
 require 'tty-prompt'
+require 'tty-spinner'
 require_relative 'display'
 require_relative 'log'
 
@@ -11,6 +12,9 @@ class User
     @user = name_input
     @user_cap = name_input.capitalize.light_yellow.bold
     @file_path = "./data/users/#{@user}.json"
+    @prompt = TTY::Prompt.new(active_color: :yellow)
+    @log = Log.new
+    @log_today = @log.user_today
   end
 
   #! Below's method doesn't work when combined in hyd_app.rb unfortunately, will revisit next time
@@ -22,7 +26,7 @@ class User
       q.messages[:valid?] = "Please choose one-word without any symbols"
       q.modify   :down
     end
-    username = User.new(name_input)
+    # username = User.new(name_input)
   end
   
   def check
@@ -53,41 +57,32 @@ class User
     linebreak
   end
 
-  def display_feelings_menu
+  # Connect with Log to ask f_before and f_after
+  def log_include(f_cond)
 
-    prompt = TTY::Prompt.new(active_color: :yellow)
-  
-    choices = [
-  
-      {name: "Bored", value: 1},
-      {name: "Just OK", value: 2},
-      {name: "Happy", value: 3},
-      {name: "Sad", value: 4},
-      {name: "Stress", value: 5},
-      {name: "Angry", value: 6}
-  
-      ]
+    collected_input = @prompt.collect do
+      key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Sad Stress Angry))
+    end
     
-      input = prompt.select("  Right now, I feel:", choices)
+    # Back-end - update user_today log
+    @log_today.merge!(collected_input)
 
-      log = Log.new
-      # having difficulties using the return value from tty-prompt, hence manual input
-      case input
-      # user_alert
-      when 4
-        respond_alert
-
-        # back-end log entry
+    # DEBUGGING purpose
+    # puts "  Collected '#{collected_input}' --> #{@log_today.merge!(collected_input)}"
+    # puts "  Feeling is #{@log_today[f_cond.to_sym]}"
+    # puts "  Check log_today -- #{@log_today}"
     
-        # log.user_alert << input  
-      else # user_normal
-        respond_normal
-        
-      end
-  
   end
 
-
+  def check_alert_before
+    # compare user's input with 'alert' to respond
+    alert = ["Sad", "Stress", "Angry"]
+    alert.each do |feeling|
+      if @log_today[:f_before] == feeling
+      respond_alert_fbefore end
+      end 
+    respond_normal_fbefore
+  end
 
   # Exit message
   def bye
@@ -102,26 +97,26 @@ class User
   
   private
 
-  def respond_alert
+  def respond_alert_fbefore
     linebreak
     wait
-    puts "  That must be really hard for you, #{@user_cap}."
+    puts "  " + green_up(":-(") + "  That must be really hard for you, #{@user_cap}."
     wait_longer
     puts "  It's OK to be not OK."
     linebreak
     wait
     puts "  You've recognised how you're feeling today, and that's"
-    puts "  a good start! Hope you will feel better soon, #{@user_cap}!"
-    linebreak
-    wait_longer
-    puts "  Now, lets get ready for an entertainment!"
-    linebreak
+    puts "  a good start! Hopefully you will feel better soon!"
+    # linebreak
+    # wait_longer
+    # puts "  Now, lets get ready for an entertainment!"
+    # linebreak
   end
 
-  def respond_normal
+  def respond_normal_fbefore
     linebreak
-    wait
-    puts "  Let's get ready for an entertainment now, #{@user_cap}!"
+    wait_longer
+    puts "  Now, let's get ready for an entertainment, #{@user_cap}!"
     linebreak
   end
 

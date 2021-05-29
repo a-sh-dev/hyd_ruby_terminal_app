@@ -1,5 +1,6 @@
 require 'artii'
 require 'rainbow'
+require 'colorize'
 require 'TTY-prompt'
 require_relative 'log'
 require_relative 'user'
@@ -47,9 +48,9 @@ end
 #* UI Elements 
 # ------------------------------
 
-# current dash count = 58 characters + 2 for spacing --> 60
+# current dash count = 63 characters + 2 for spacing --> 65
 def linebreak
-  line = "  ----------------------------------------------------------"
+  line = "  ---------------------------------------------------------------"
   puts Rainbow(line).color("8DEEA6")
 end
 
@@ -65,6 +66,10 @@ def display_app_header
   linebreak
 end
 
+def green_up(string)
+  Rainbow(string).color("8DEEA6")
+end
+
 # ------------------------------
 #* Display 
 # ------------------------------
@@ -78,6 +83,7 @@ def display_greeting
   puts "  you can remember easily next time."
   linebreak
 end
+
 
 def display_refresh
   
@@ -95,4 +101,12 @@ def wait_longer
   sleep(1.5)
 end
 
+# ------------------------------
+#* Prompt 
+# ------------------------------
 
+def ask_to_continue?
+  prompt = TTY::Prompt.new(active_color: :yellow)
+  continue = prompt.keypress("  >> Press any key to continue")
+  continue.light_green.bold
+end

@@ -17,39 +17,13 @@ username = User.new(name_input)
 username.check
 
 # ------------------------------
-#* ASK HOW USER'S DOIN  
+#* ASK USER'S COND & CREATE LOG  
 # ------------------------------
 
 username.ask_feeling
-username.display_feelings_menu
-
-
-
-# Store today's first entry in a hash
-def log_entry
-
-  # back-end entry : day | dd/mm/yy {day: x, date: dd/mm/yy}
-  
-  # Options 
-  # ALERT: - sad - stress - angry
-
-  # if in ALERT, store it in the alert array
-
-  # NORMAL: - bored - just ok - happy
-
-  # store all data in the today's array (:before)
-end
-
-# Display recognising info
-def respond_to_log
-  linebreak
-  # if alert : sad / stress / angry
-  puts "That must be really hard for you."
-  puts "It's OK to be not OK."
-  puts "You've recognised how you're feeling today, and\nthat's a good start! Hope you will feel better soon!" 
-  # else : normal category
-  puts "Get ready for an entertainment!"
-end
+username.log_include("f_before")
+username.check_alert_before
+ask_to_continue?
 
 # ------------------------------
 #* ENTERTAINMENT
