@@ -14,7 +14,7 @@ print "  Choose a nickname >> "
 name_input = gets.strip.downcase
 username = User.new(name_input)
 # check new / existing user
-username.check
+username.check_system
 
 # ------------------------------
 #* ASK USER'S COND & CREATE LOG  
@@ -22,8 +22,15 @@ username.check
 
 username.ask_feeling
 username.log_include("f_before")
-username.check_alert_before
+username.check_alert_fbefore
+
+# DEBUNGGING
+# puts
+# puts "  Check log_today outside -- #{username.log_today}"
+
 ask_to_continue?
+
+
 
 # ------------------------------
 #* ENTERTAINMENT

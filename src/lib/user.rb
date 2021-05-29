@@ -6,7 +6,7 @@ require_relative 'display'
 require_relative 'log'
 
 class User
-  attr_reader :user, :user_cap
+  attr_reader :user, :user_cap, :log_today
 
   def initialize(name_input)
     @user = name_input
@@ -29,7 +29,7 @@ class User
     # username = User.new(name_input)
   end
   
-  def check
+  def check_system
     # Existing user?
     if File.exist?(@file_path)
       File.open(@file_path, 'r')
@@ -61,27 +61,39 @@ class User
   def log_include(f_cond)
 
     collected_input = @prompt.collect do
-      key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Sad Stress Angry))
+      key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Anxious Sad Stress))
     end
-    
+
     # Back-end - update user_today log
-    @log_today.merge!(collected_input)
+    @log_today = @log_today.merge(collected_input)
 
     # DEBUGGING purpose
-    # puts "  Collected '#{collected_input}' --> #{@log_today.merge!(collected_input)}"
+    # puts "  Collected '#{collected_input}' --> #{@log_today}"
     # puts "  Feeling is #{@log_today[f_cond.to_sym]}"
-    # puts "  Check log_today -- #{@log_today}"
+    # puts "  Check log_today again yo -- #{@log_today}"
     
   end
 
-  def check_alert_before
-    # compare user's input with 'alert' to respond
-    alert = ["Sad", "Stress", "Angry"]
-    alert.each do |feeling|
-      if @log_today[:f_before] == feeling
-      respond_alert_fbefore end
-      end 
-    respond_normal_fbefore
+  def check_alert_fbefore
+    alert = ["Sad", "Stress", "Anxious"]
+    user_alert = @log_today[:f_before]
+    # compare user's input with 'alert' to respond    
+    if alert.count(user_alert) == 1
+      respond_alert_fbefore
+    else
+      respond_normal_fbefore
+    end
+  end
+
+  def check_alert_fafter
+    alert = ["Sad", "Stress", "Anxious"]
+    user_alert = @log_today[:f_after]
+    # compare user's input with 'alert' to respond    
+    if alert.count(user_alert) == 1
+      # respond_alert_fbefore
+    else
+      # respond_normal_fbefore
+    end
   end
 
   # Exit message
@@ -107,18 +119,19 @@ class User
     wait
     puts "  You've recognised how you're feeling today, and that's"
     puts "  a good start! Hopefully you will feel better soon!"
-    # linebreak
-    # wait_longer
-    # puts "  Now, lets get ready for an entertainment!"
-    # linebreak
+    linebreak
+    wait_longer
+    puts "  Now, lets get ready for an entertainment!"
+    linebreak
   end
 
   def respond_normal_fbefore
     linebreak
     wait_longer
-    puts "  Now, let's get ready for an entertainment, #{@user_cap}!"
+    puts "  Then let's get ready for an entertainment, #{@user_cap}!"
     linebreak
   end
+  
 
   #! When refractored, method doesn't work...
   def user_exists?
