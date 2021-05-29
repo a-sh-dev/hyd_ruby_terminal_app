@@ -66,6 +66,16 @@ def display_app_header
   linebreak
 end
 
+def display_app_header_laugh
+  system "clear"
+  logo = Title.new
+  logo.title(" Dad Jokes")
+  linebreak
+  subtitle = "  How about a laugh?".bold
+  puts green_up(subtitle)
+  linebreak
+end
+
 def green_up(string)
   Rainbow(string).color("8DEEA6")
 end
@@ -97,15 +107,19 @@ def wait
   sleep(1.25)
 end
 
-def wait_longer
+def wait_long
   sleep(1.5)
+end
+
+def wait_longer
+  sleep(2.5)
 end
 
 # ------------------------------
 #* Prompt 
 # ------------------------------
 
-def ask_to_continue?
+def ask_to_continue
   prompt = TTY::Prompt.new(active_color: :yellow)
   continue = prompt.keypress("  >> Press any key to continue")
   continue.light_green.bold

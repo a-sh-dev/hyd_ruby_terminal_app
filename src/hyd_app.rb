@@ -28,8 +28,8 @@ username.check_alert_fbefore
 # puts
 # puts "  Check log_today outside -- #{username.log_today}"
 
-ask_to_continue?
-
+ask_to_continue
+display_app_header_laugh
 
 
 # ------------------------------

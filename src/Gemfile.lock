@@ -3,6 +3,7 @@ GEM
   specs:
     artii (2.1.2)
     colorize (0.8.1)
+    espeak-ruby (1.0.4)
     json (2.5.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
@@ -42,6 +43,7 @@ PLATFORMS
 DEPENDENCIES
   artii (~> 2.1)
   colorize (~> 0.8.1)
+  espeak-ruby (~> 1.0)
   json (~> 2.5)
   rainbow (~> 3.0)
   tty-box (~> 0.7.0)

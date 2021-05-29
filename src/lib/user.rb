@@ -36,23 +36,25 @@ class User
       display_app_header
       puts "  Welcome back, #{@user_cap}!"
       puts "  Glad to see you again!"
+      linebreak
     else # New user
       file = File.new(@file_path, 'w')
       file.close
       display_app_header
       puts "  Glad that you're here, #{@user_cap}!"
+      linebreak
       wait
       puts "  Every time you use this app, a log is created and is only"
       puts "  accessible by you to check on how you doin. So, when you"
       puts "  use the app next time, please make sure to remember the"
       puts "  name ⟾  #{@user_cap} that you've entered to login!"
-      wait_abit
+      linebreak
+      wait_longer
     end
   end
 
   def ask_feeling
-    linebreak
-    wait_abit
+    wait
     puts "  So, how you doin (feeling) right now, #{@user_cap}?"
     linebreak
   end
