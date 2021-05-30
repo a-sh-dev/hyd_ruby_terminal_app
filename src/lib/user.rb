@@ -10,23 +10,11 @@ class User
 
   def initialize(name_input)
     @user = name_input
-    @user_cap = name_input.capitalize.light_yellow.bold
+    @user_cap = @user.capitalize.light_yellow.bold
     @file_path = "./data/users/#{@user}.json"
     @prompt = TTY::Prompt.new(active_color: :yellow)
     @log = Log.new
     @log_today = @log.user_today
-  end
-
-  #! Below's method doesn't work when combined in hyd_app.rb unfortunately, will revisit next time
-  def get_input
-    prompt = TTY::Prompt.new
-    name_input = prompt.ask("  Choose a nickname >> ") do |q|
-      q.required true
-      q.validate(/^\w+$/)
-      q.messages[:valid?] = "Please choose one-word without any symbols"
-      q.modify   :down
-    end
-    # username = User.new(name_input)
   end
   
   def check_system
@@ -129,12 +117,11 @@ class User
 
   def respond_normal_fbefore
     linebreak
-    wait_longer
+    wait
     puts "  Then let's get ready for an entertainment, #{@user_cap}!"
     linebreak
   end
   
-
   #! When refractored, method doesn't work...
   def user_exists?
     File.exist?(@file_path)

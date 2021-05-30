@@ -1,6 +1,4 @@
 require 'json'
-require 'tty-box'
-require 'tty-spinner'
 require_relative 'display'
 
 class Laugh

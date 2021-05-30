@@ -1,4 +1,3 @@
-require_relative './lib/respond'
 require_relative './lib/display'
 require_relative './lib/log'
 require_relative './lib/user'
@@ -10,10 +9,11 @@ require_relative './lib/user'
 
 display_greeting
 # get username
+# tried to validate using a method & tty-prompt (check display.rb > Prompt)
 print "  Choose a nickname >> "
 name_input = gets.strip.downcase
 username = User.new(name_input)
-# check new / existing user
+# check for existing user / create new
 username.check_system
 
 # ------------------------------
