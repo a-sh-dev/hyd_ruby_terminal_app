@@ -2,6 +2,7 @@ require 'colorize'
 require 'rainbow'
 require 'tty-prompt'
 require 'tty-spinner'
+
 require_relative 'display'
 require_relative 'log'
 

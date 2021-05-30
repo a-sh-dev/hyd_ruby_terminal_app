@@ -2,6 +2,7 @@ require 'artii'
 require 'rainbow'
 require 'colorize'
 require 'TTY-prompt'
+
 require_relative 'log'
 require_relative 'user'
 
@@ -95,7 +96,6 @@ def display_greeting
   linebreak
 end
 
-
 def display_refresh
   
 end
@@ -149,4 +149,23 @@ def get_and_validate_username_input(name_input)
       puts "  Please choose one-word only without any symbols".red
       get_and_validate_username_input(name_input)
     end
+end
+
+# ------------------------------
+#* Unused 
+# ------------------------------
+
+# Options for Entertainment
+def entertainment
+  linebreak
+  puts "Now, please choose from the following options:"
+  linebreak
+  # option 1
+  # puts "Let some dad jokes entertain you!"
+  puts "1. How about a laugh?"
+  # option 2
+  # puts "Not in the mood to laugh?"
+  puts "2. How about an encouragement?"
+  # ask user input
+  
 end

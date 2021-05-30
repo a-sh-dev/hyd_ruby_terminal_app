@@ -31,25 +31,12 @@ username.check_alert_fbefore
 ask_to_continue
 display_app_header_laugh
 
-
 # ------------------------------
-#* ENTERTAINMENT
+#* ENTERTAINMENT – LAUGH
 # ------------------------------
 
-# Options for Entertainment
-def entertainment
-  linebreak
-  puts "Now, please choose from the following options:"
-  linebreak
-  # option 1
-  # puts "Let some dad jokes entertain you!"
-  puts "1. How about a laugh?"
-  # option 2
-  # puts "Not in the mood to laugh?"
-  puts "2. How about an encouragement?"
-  # ask user input
-  
-end
+laugh = Laugh.new
+laugh.display_info
 
 
 

@@ -143,27 +143,27 @@ A thank you for using the app is displayed with short copyright and credit info.
 
 The tone of the app is positive, chill and friendly. The chosen words throughout the app will be sensitive and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
 
-#### Ruby Gems Files Implementations 
+#### Ruby Gems Files Integrations
 
-1. Easy navigation - up and down arrow navigations *(TTY prompt)*
-2. ASCII art generator for each page *(TTY font)*
-3. Tables implementations for displaying log entries *(TTY Table)*
-4. TTY Box
-5. Speak/Speech
-6. Colors *(Rainbow)*
-7. JSON
+1. Easy navigation - up and down arrow navigations *– TTY prompt*
+2. ASCII art text generator page header / title *– Artii*
+3. Tables implementations for displaying log entries *– Terminal Table*
+4. UI add-ons, text colors *– Rainbow*
+5. UI add-ons, another text colors *– Colorize* 
+6. UI add-ons, an animated spinner to display 'loading time' allowing user to think *– TTY Spinner*
+7. Data persistence feature for saving data and accessing data – *JSON*
 
 ### Limitations & Future Development Plan
 
-- At later version
+- Due to time constraints, only the dad-jokes part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and simple word games.
+- Possiblity to add dad-jokes API integration for more external unlimited sources.
+- Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
 
 ### Credits
 
-Dad jokes materials are based on
+Dad jokes materials are based on *David Williams's 'The Greatest, Most Awesome Collection of Dad Jokes ... Ever"*,  [amazon link](https://www.amazon.com/greatest-most-awesome-collection-Jokes-ebook/dp/B0894XJ1L4).
 
-Encouragements materials are based on
-
-Mental health facts and advice materials are based on
+Mental health materials are based on [*Mental Health America*](https://mhanational.org/mental-health-month).
 
 ## Testing
 

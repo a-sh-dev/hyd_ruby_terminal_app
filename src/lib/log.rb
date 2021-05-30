@@ -1,5 +1,6 @@
 require 'json'
 require 'tty-prompt'
+
 require_relative 'display'
 require_relative 'user'
 

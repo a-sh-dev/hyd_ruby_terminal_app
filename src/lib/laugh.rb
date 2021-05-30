@@ -1,4 +1,5 @@
 require 'json'
+
 require_relative 'display'
 
 class Laugh
@@ -7,6 +8,12 @@ class Laugh
     @jokes_array = []
     @container = 
     @loading = 
+  end
+
+  def display_info
+    puts "  Let some dad jokes entertain you!"
+    
+
   end
 
   def load_to_array
@@ -21,7 +28,7 @@ class Laugh
     
   end
 
-
+  private
 
 
 end
