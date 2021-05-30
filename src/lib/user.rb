@@ -125,7 +125,7 @@ class User
   end
   
   #! When refractored, method doesn't work...
-  def user_exists?
+  def user_exists
     File.exist?(@file_path)
     File.open(@file_path, 'r')
   end

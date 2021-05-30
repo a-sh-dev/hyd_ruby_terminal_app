@@ -1,4 +1,4 @@
-# *"How You Doin?"* Terminal Application
+# *"How You Doin?"* – Ruby Terminal Application
 
 GitHub repo:
 

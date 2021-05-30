@@ -1,11 +1,13 @@
 require 'json'
 require 'tty-spinner'
+require 'tty-box'
+require 'colorize'
 
-require_relative 'display'
+# require_relative 'display'
 
 class Laugh
   def initialize
-    @file_path = "./data/laugh/dad_jokes.json"
+    @json_file_path = "./data/laugh/dad_jokes.json"
     @jokes_array = []
   end
 
@@ -36,11 +38,23 @@ class Laugh
     wait_longer
   end
 
+  # Load .json file into an array
   def load_to_array
-    
+    json_file = JSON.parse(File.read(@json_file_path))
+    @jokes_array = json_file.map do |joke|
+      joke.transform_keys(&:to_sym)
+    end
+  rescue Errno::ENOENT
+    File.open(@json_file_path, 'w+')
+    File.write(@json_file_path, [])
+    retry
   end
 
   def randomise_jokes
+    
+  end
+
+  def display_joke
     
   end
 
@@ -49,12 +63,15 @@ class Laugh
   end
 
   def loading_answer
-    spinner = TTY::Spinner.new("  Revealing the rest in a moment...  :spinner")
+    text = "    :spinner".green
+    spinner = TTY::Spinner.new(text, format: :flip, hide_cursor: true)
     spinner.auto_spin
     
-    sleep 7 # Some long task
-    
-    spinner.stop('*:.｡.＼(＾▽＾)／.｡.:*')
+    sleep(5) # Some long task
+    # kaomoji_yay = green_up("  *:.｡.＼(＾▽＾)／.｡.:*")
+
+    arrow = "  ⤋  ".green
+    spinner.stop(arrow)
   end
 
   private
@@ -62,3 +79,25 @@ class Laugh
 
 end
 
+
+# format_jokes = jokes.each do |joke|
+#   puts joke
+# joke.each do |id, ans, ask|
+#   puts "  #{id}:  \n#{ans}\n  #{ask}"
+# end
+# end
+def randomise
+  loaded = Laugh.new
+  jokes = loaded.load_to_array
+  puts 
+  puts random = jokes[rand(0..50)]
+  puts
+  puts "  #{random[:ask]}".bold
+  puts
+  loaded.loading_answer
+  puts
+  puts "  #{random[:ans]}".bold
+end
+
+randomise
+randomise
