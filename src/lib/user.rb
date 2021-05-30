@@ -39,11 +39,12 @@ class User
       puts "  name ⟾  #{@user_cap} that you've entered to login!"
       linebreak
       wait_longer
+      wait_abit
     end
   end
 
   def ask_feeling
-    wait
+    wait_abit
     puts "  So, how you doin (feeling) right now, #{@user_cap}?"
     linebreak
   end

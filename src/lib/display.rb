@@ -49,9 +49,9 @@ end
 #* UI Elements 
 # ------------------------------
 
-# current dash count = 63 characters + 2 for spacing --> 65
+# current dash count = 68 characters + 2 for spacing --> 70
 def linebreak
-  line = "  ---------------------------------------------------------------"
+  line = "  --------------------------------------------------------------------"
   puts Rainbow(line).color("8DEEA6")
 end
 
@@ -59,6 +59,14 @@ def refresh
   system "clear"
   # sleep(1)
 end
+
+def green_up(string)
+  Rainbow(string).color("8DEEA6")
+end
+
+# ------------------------------
+#* Display 
+# ------------------------------
 
 def display_app_header
   system "clear"
@@ -77,14 +85,6 @@ def display_app_header_laugh
   puts subtitle
   linebreak
 end
-
-def green_up(string)
-  Rainbow(string).color("8DEEA6")
-end
-
-# ------------------------------
-#* Display 
-# ------------------------------
 
 # Welcome message greeting
 def display_greeting

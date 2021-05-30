@@ -27,9 +27,6 @@ class Log
     
   end
 
-
-
-
   def check_alert_after
     @@alert.each do |feeling|
       if @user_today[:f_after] == feeling

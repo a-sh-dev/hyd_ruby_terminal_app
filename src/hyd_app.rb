@@ -1,6 +1,7 @@
 require_relative './lib/display'
 require_relative './lib/log'
 require_relative './lib/user'
+require_relative './lib/laugh'
 
 
 # ------------------------------
@@ -29,26 +30,26 @@ username.check_alert_fbefore
 # puts "  Check log_today outside -- #{username.log_today}"
 
 ask_to_continue
-display_app_header_laugh
 
 # ------------------------------
 #* ENTERTAINMENT – LAUGH
 # ------------------------------
 
+display_app_header_laugh
+
 laugh = Laugh.new
-laugh.display_info
-
-
-
+laugh.display_intro
+ask_to_continue
 #* Randomise laugh / entertainment
+
+
+laugh.display_info_after_jokes
+
 
 # Implement json load -- and randomise jokes
 
-# Get response ☺ | ☹ -- is this needed?
-
 # Options on every random output
 # > More
-# > How about a laugh/an encouragement instead?
 # > Call it a day
 
 # ------------------------------
