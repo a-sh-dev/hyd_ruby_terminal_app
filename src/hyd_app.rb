@@ -10,9 +10,15 @@ require_relative './lib/laugh'
 
 display_greeting
 # get username
-# tried to validate using a method & tty-prompt (check display.rb > Prompt)
-print "  Choose a nickname >> "
-name_input = gets.strip.downcase
+
+prompt = TTY::Prompt.new
+name_input = prompt.ask("  Choose a nickname >> ") do |q|
+  q.required true
+  q.validate(/^\w+$/)
+  q.messages[:valid?] = "Please choose one-word only without any symbols"
+  q.modify   :down
+end
+
 username = User.new(name_input)
 # check for existing user / create new
 username.check_system
@@ -58,6 +64,8 @@ laugh.display_info_after_jokes
 
 # Display info
 # Ask for user's feeling
+username.ask_feeling
+
 # Store & merge today's entry
 # Display info & the log with last 5 entries
 # Next option

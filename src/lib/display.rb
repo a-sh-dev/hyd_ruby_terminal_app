@@ -126,7 +126,7 @@ def ask_to_continue
   continue.light_green.bold
 end
 
-#! Below's method doesn't work when combined in hyd_app.rb unfortunately, will revisit next time
+#! Below's method doesn't work when called in hyd_app.rb as a method unfortunately -- local variable issue.
 def get_input
   prompt = TTY::Prompt.new
   name_input = prompt.ask("  Choose a nickname >> ") do |q|
@@ -138,17 +138,17 @@ def get_input
   # username = User.new(name_input)
 end
 
-#! Re-attempting above validation but without tty-prompt. Still unsuccessful - error of undefined local method appears - I tried to look up but can't resolve it, I tried to declare the name_input in the parameter but still unsuccessful when passed as argument! -- when I tried to declare name_input = "" above the method, User class coulnd't recognise the input after below's method is executed and return with empty string.
+#! Re-attempting above validation without tty-prompt. Still unsuccessful - undefined local method error - I tried to declare the name_input in the parameter but still unsuccessful when passed as argument! -- when I tried to declare name_input = "" above the method, User class coulnd't recognise the input after below's method is executed and return with empty string.
 def get_and_validate_username_input(name_input)
   # Get user's input
   print "  Choose a nickname >> "
   name_input = gets.strip.downcase
   # Validating input to be one word only without any symbols
-    if name_input.match(/^\w+$/)
-    else
-      puts "  Please choose one-word only without any symbols".red
-      get_and_validate_username_input(name_input)
-    end
+  if name_input.match(/^\w+$/)
+  else
+    puts "  Please choose one-word only without any symbols".red
+    get_and_validate_username_input(name_input)
+  end
 end
 
 # ------------------------------

@@ -11,8 +11,8 @@ class Laugh
 
   def display_intro
     puts "  Let some dad jokes entertain you!"
-    wait
     linebreak
+    wait
     puts "  Every dad joke has a set of two parts. When the first part"
     puts "  is displayed, the second will follow in 5 seconds, allowing"
     puts "  you time to digest the jokes... although you're not"
@@ -31,7 +31,7 @@ class Laugh
     linebreak
     wait_longer
     puts "  The same way we are learning to respond to our feelings"
-    puts "  and emotions, however good or bad they are :-)"
+    puts "  and emotions, however good or bad they are " + green_up(":-)")
     linebreak
     wait_longer
   end
