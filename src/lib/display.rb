@@ -1,4 +1,3 @@
-require 'artii'
 require 'rainbow'
 require 'colorize'
 require 'tty-prompt'
@@ -11,9 +10,6 @@ require_relative 'user'
 class Title
   
   def initialize
-    # Artii gem has been causing issues and crashes!
-    # @title_base = Artii::Base.new :font => 'slant'
-    @title_base = Artii::Base.new
     @font = TTY::Font.new(:doom)  
   end
 
@@ -21,13 +17,6 @@ class Title
   def title(heading)
     # system "clear"
     title = @font.write(heading) 
-    puts
-    puts Rainbow(title).color("8DEEA6") 
-  end
-  
-  def title_artii(heading)
-    # system "clear"
-    title = @title_base.asciify(heading) 
     puts
     puts Rainbow(title).color("8DEEA6") 
   end
@@ -62,11 +51,6 @@ def arrow
   return "➤ "
 end
 
-def refresh
-  system "clear"
-  # sleep(1)
-end
-
 def green_up(string)
   Rainbow(string).color("8DEEA6")
 end
@@ -99,6 +83,21 @@ def div_btm(content)
     style: {border: {fg: :yellow}}
   ) { border_text.bold }
 end
+
+def div(content)
+  border_text = content
+  border = TTY::Box.frame(
+    top: 19,
+    left: 8,
+    width: 66,
+    height: 5,
+    border: :light,
+    align: :center,
+    padding: [1,2],
+    style: {border: {fg: :green}}
+  ) { border_text.bold }
+end
+
 
 
 # ------------------------------
@@ -159,7 +158,8 @@ def ask_to_continue
   prompt.keypress(prompt_text)
 end
 
-#! Below's method doesn't work when called in hyd_app.rb as a method unfortunately -- local variable issue.
+#! Below's method doesn't work when called in hyd_app.rb
+#! as a method unfortunately -- local variable issue.
 def get_input
   prompt = TTY::Prompt.new
   name_input = prompt.ask("  Choose a nickname #{arrow}") do |q|
@@ -171,7 +171,11 @@ def get_input
   # username = User.new(name_input)
 end
 
-#! Without tty-prompt. Unsuccessful - undefined local method error - Despite declaring the name_input in the parameter, it's still unsuccessful when argument is passed! -- Also tried declaring name_input = "", User class coulnd't recognise the input with below's method and return an empty string.
+#! Without tty-prompt. Unsuccessful - undefined local method
+#! error - Despite declaring the name_input in the parameter, 
+#! it's still unsuccessful when argument is passed! -- Also 
+#! tried declaring name_input = "", User class coulnd't
+#! recognise the input with below's method and return an empty string.
 def get_and_validate_username_input(name_input)
   # Get user's input
   print "  Choose a nickname #{arrow}"

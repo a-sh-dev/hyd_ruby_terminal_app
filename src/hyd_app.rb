@@ -4,13 +4,13 @@ require_relative './lib/user'
 require_relative './lib/laugh'
 
 
-# ------------------------------
+# --------------------------------------
 #* GREETINGS & GET USER 
-# ------------------------------
+# --------------------------------------
 
 display_greeting
-# get username
 
+# get username
 prompt = TTY::Prompt.new
 prompt_text = green_up("  Choose a nickname #{arrow}")
 name_input = prompt.ask(prompt_text) do |q|
@@ -24,18 +24,18 @@ username = User.new(name_input)
 # check for existing user / create new
 username.check_system
 
-# ------------------------------
-#* ASK USER'S COND & CREATE LOG  
-# ------------------------------
+# --------------------------------------
+#* ASK USER'S COND & CREATE TODAY's LOG  
+# --------------------------------------
 
 username.ask_feeling
 username.log_include("f_before")
 username.check_alert_fbefore
 ask_to_continue
 
-# ------------------------------
+# --------------------------------------
 #* ENTERTAINMENT – LAUGH
-# ------------------------------
+# --------------------------------------
 
 display_app_header_laugh
 laugh = Laugh.new
@@ -45,27 +45,18 @@ ask_to_continue
 # Laugh menu & randomise jokes
 laugh.display_joke_menu
 
-# ------------------------------
-#* CALL IT A DAY
-# ------------------------------
+# --------------------------------------
+#* CALL IT A DAY & DISPLAY LOG ENTRIES
+# --------------------------------------
 
 # Ask for user's feeling (f_after)
 username.ask_feeling
 username.log_include("f_after")
 username.check_alert_fafter
-
-# DEBUNGGING
-puts "  ============ DEBUGGING ==="
-puts "  Check log_today outside -- #{username.log_today}"
-# DEBUG END
-
-puts
-
 ask_to_continue
 
-# Display info & the log with last 5 entries
+# Display log with 5 last entries
 
-# Next option
 
 # ------------------------------
 #* MENTAL HEALTH DISPLAY

@@ -2,7 +2,7 @@
 
 GitHub repo:
 
-`https://github.com/a-sh-dev/hyd_terminal_app`
+`https://github.com/a-sh-dev/hyd_ruby_terminal_app`
 
 --- place final product screenshot here
 

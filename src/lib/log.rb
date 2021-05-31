@@ -12,14 +12,14 @@ class Log
   def initialize
     # @user = name_input
     @file_path = "./data/users/#{@user}.json"
-    @id = Time.new.strftime("%y%m%d")
+    @timestamp = Time.new.strftime("%y%m%d")
     @date = Time.new.strftime("%a, %d %b '%y")
-    @user_today = {id: @id, time: @date }
+    @user_today = {id: @timestamp, time: @date }
     @prompt = TTY::Prompt.new(active_color: :yellow)
   end
   
   # Add today's @user_today entry to json
-  def merge_today_entry
+  def merge_today_entry(file_path)
     json file << @user_today
   end
   
@@ -28,6 +28,8 @@ class Log
     
   end
 
+  # check if file is empty, don't load
+  # if file not empty, display by iterating the last fie entries
 
 end
 

@@ -17,18 +17,16 @@ class User
     # @log = Log.new
     @log_today = Log.new.user_today
   end
-  
+
   def check_system
     # Existing user?
-    if File.exist?(@file_path)
-      File.open(@file_path, 'r')
+    if user_exists
       display_app_header
       puts "  Welcome back, #{@user_cap}!"
       puts "  Glad to see you again!"
       linebreak
     else # New user
-      file = File.new(@file_path, 'w')
-      file.close
+      user_is_new
       display_app_header
       puts "  Glad that you're here, #{@user_cap}!"
       linebreak
@@ -97,6 +95,7 @@ class User
   
   private
 
+  # if user's feeling in the alert / concern category
   def respond_alert_fbefore
     linebreak
     wait
@@ -120,13 +119,12 @@ class User
     linebreak
   end
   
-  #! When refractored, method doesn't work...
   def user_exists
     File.exist?(@file_path)
-    File.open(@file_path, 'r')
+    # File.open(@file_path, 'r')
   end
 
-  def user_new
+  def user_is_new
     file = File.new(@file_path, 'w')
     file.close
   end

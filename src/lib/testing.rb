@@ -4,6 +4,8 @@ require 'tty-spinner'
 require 'rainbow'
 require 'colorize'
 require 'espeak'
+require 'tty-table'
+require 'pastel'
 
 require_relative 'display'
 
@@ -26,13 +28,20 @@ border_text = "One's really heavy and the other's a little lighter."
 line = "  --------------------------------------------------------------------"
 puts Rainbow(line).color("8DEEA6")
 
-puts "  Choose a nickname #{arrow}"
+table = TTY::Table.new(
+  %w[No. Date. Feelings], # header
+  [%w[1], %w[b1 b2], %w[c1 c2]])
+puts table.render(:ascii) do |renderer|
+renderer.border.separator = :each_row
+end
 
+pastel = Pastel.new
+yellow = pastel.yellow.detach
+header = [yellow.("Column 1"), yellow.("Column 2"), yellow.("Column 3")]
+table = TTY::Table.new(header: header) do |t|
+  t << %w[11 12 13]
+  t << %w[21 22 23]
+  t << %w[31 32 33]
+end
 
-# Messagebox
-# puts TTY::Box.info "Deploying application", top: 2, left: 2
-# puts TTY::Box.success "Deploying application", top: 2, left: 29
-# puts TTY::Box.warn "Deploying application", top: 8, left: 2
-# puts TTY::Box.error "Deploying application", top: 8, left: 29
-
-# puts
+puts table.render(:ascii, padding: [1, 2, 1, 2])

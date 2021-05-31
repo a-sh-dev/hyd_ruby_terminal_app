@@ -16,8 +16,6 @@ gem "tty-box", "~> 0.7.0"
 
 gem "rainbow", "~> 3.0"
 
-gem "artii", "~> 2.1"
-
 gem "tty-spinner", "~> 0.9.3"
 
 gem "colorize", "~> 0.8.1"
