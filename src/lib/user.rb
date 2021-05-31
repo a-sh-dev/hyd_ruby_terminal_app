@@ -14,8 +14,8 @@ class User
     @user_cap = @user.capitalize.light_yellow.bold
     @file_path = "./data/users/#{@user}.json"
     @prompt = TTY::Prompt.new(active_color: :yellow)
-    @log = Log.new
-    @log_today = @log.user_today
+    # @log = Log.new
+    @log_today = Log.new.user_today
   end
   
   def check_system

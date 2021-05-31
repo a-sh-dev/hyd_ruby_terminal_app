@@ -1,14 +1,19 @@
 require 'json'
 require 'tty-spinner'
+require 'tty-prompt'
 require 'tty-box'
 require 'colorize'
 
-# require_relative 'display'
+require_relative 'display'
 
 class Laugh
+
+  attr_reader :jokes_array
+
   def initialize
     @json_file_path = "./data/laugh/dad_jokes.json"
-    @jokes_array = []
+    @prompt = TTY::Prompt.new(active_color: :yellow)
+    
   end
 
   def display_intro
@@ -38,6 +43,22 @@ class Laugh
     wait_longer
   end
 
+  def display_joke_menu
+    
+  end
+  
+  def randomise_jokes 
+    # Pick a random hash set from @jokes_array (parsed json file)
+    random = @jokes_array[rand(0..50)]
+    # container = 
+    puts "  #{random[:ask]}"
+    puts
+    laugh.loading_punchline
+    puts
+    puts "  #{random[:ans]}"
+  
+  end
+
   # Load .json file into an array
   def load_to_array
     json_file = JSON.parse(File.read(@json_file_path))
@@ -50,31 +71,38 @@ class Laugh
     retry
   end
 
-  def randomise_jokes
-    
-  end
 
-  def display_joke
-    
-  end
-
-  def reveal_answer
-    
-  end
-
-  def loading_answer
-    text = "    :spinner".green
+  def loading_punchline
+    text = "#{spacing(30)}:spinner".green
     spinner = TTY::Spinner.new(text, format: :flip, hide_cursor: true)
     spinner.auto_spin
     
-    sleep(5) # Some long task
-    # kaomoji_yay = green_up("  *:.｡.＼(＾▽＾)／.｡.:*")
+    sleep(5)
 
     arrow = "  ⤋  ".green
     spinner.stop(arrow)
   end
 
   private
+  
+  def spacing(num)
+    return " " * num
+  end
+
+  def div(content)
+    border_text = content
+    border = TTY::Box.frame(
+      top: 3,
+      left: 4,
+      width: 64,
+      height: 5,
+      border: :light,
+      align: :center,
+      padding: [1,2],
+      style: {border: {fg: :yellow}}
+    ) { border_text.bold }
+  end
+
 
 
 end
@@ -86,18 +114,26 @@ end
 #   puts "  #{id}:  \n#{ans}\n  #{ask}"
 # end
 # end
-def randomise
-  loaded = Laugh.new
-  jokes = loaded.load_to_array
+def randomise  
+  laugh = Laugh.new
+  jokes = laugh.load_to_array
   puts 
+  puts "This is @jokes_array var: #{laugh.jokes_array}"
+  puts "............................"
   puts random = jokes[rand(0..50)]
   puts
-  puts "  #{random[:ask]}".bold
+  # container = 
+  puts "  #{random[:ask]}"
   puts
-  loaded.loading_answer
+  laugh.loading_punchline
   puts
-  puts "  #{random[:ans]}".bold
+  puts "  #{random[:ans]}"
 end
 
+line = "  --------------------------------------------------------------------"
+puts
+puts line
+
 randomise
-randomise
+puts line
+# randomise

@@ -94,7 +94,7 @@ There are two categories of feelings that the user can choose (the two category 
 - *Alert/Concern* category:
   - Sad
   - Stress
-  - Angry
+  - Anxious
 - *Normal* category:
   - Bored
   - Just OK
@@ -108,13 +108,13 @@ The two main Entertainment info and options are displayed:
   - Every joke will prompt a response:
     - 🙁  😆
   - Subsequenty, three options are available:
-    - More laugh
+    - More
     - How about an encouragement?
     - Call it a day
 - ***How about an encouragement?***
   - Generally the same as above, except a female speech/speak function can be enabled to read out the encouragement and also the exception of response prompting to every encouragement (with the smileys)
   - Subsequenty, three options are available:
-    - More laugh
+    - More
     - How about a laugh?
     - Call it a day
 
@@ -126,11 +126,11 @@ When the user calls it a day, the last entry point is prompted to update how the
 - *Normal* category:
   - Better
 
-The last 7 entries of the log is displayed according to the date, day, time and their feelings before and after. The user can navigate to the next screen to move on.
+The last 5 entries of the log is displayed according to the date, day, time and their feelings before and after. The user can navigate to the next screen to move on.
 
 If the user's current feeling is in the *alert/concern* category, a mental health facts and advice is displayed.
 
-- The information is displayed to cater for the user's initial entry: sad / stress / angry
+- The information is displayed to cater for the user's initial entry: sad / stress / anxious
 - A helpline number is also displayed
 
 A thank you for using the app is displayed with short copyright and credit info. The app will automatically exit in a few seconds.
@@ -141,7 +141,7 @@ A thank you for using the app is displayed with short copyright and credit info.
 
 ### User Interface, Interaction & Enhancements
 
-The tone of the app is positive, chill and friendly. The chosen words throughout the app will be sensitive and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
+The tone of the app is positive, chill and friendly. The chosen words throughout the app is assuring, sympathetic and considerate. For example, not using the word 'quit' to end the program, preventing any harmful negative thoughts for the worse-case scenario.
 
 #### Ruby Gems Files Integrations
 
@@ -150,13 +150,15 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 3. Tables implementations for displaying log entries *– Terminal Table*
 4. UI add-ons, text colors *– Rainbow*
 5. UI add-ons, another text colors *– Colorize* 
-6. UI add-ons, an animated spinner to display 'loading time' allowing user to think *– TTY Spinner*
-7. Data persistence feature for saving data and accessing data – *JSON*
+6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – *TTY box*
+7. UI add-ons, an animated spinner to display 'loading time' allowing user to think *– TTY Spinner*
+8. Data persistence feature for saving and accessing structured data – *JSON*
 
 ### Limitations & Future Development Plan
 
-- Due to time constraints, only the dad-jokes part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and simple word games.
+- Due to time constraints, only the dad-jokes (*How about a Laugh?*) part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and simple word guessing games.
 - Possiblity to add dad-jokes API integration for more external unlimited sources.
+- Randomised jokes can be filtered so it appear only once. There are currently 50 jokes in the material.
 - Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
 
 ### Credits
@@ -179,4 +181,4 @@ Mental health materials are based on [*Mental Health America*](https://mhanation
 
 **As part of Coder Academy FX21-01 T1A3 Assignment**
 
-*Crafted with ❤  by a-sh   –  Angie SH (a.k.a Angeline S Hentri)*
+Crafted with ❤  by a-sh © 2021
