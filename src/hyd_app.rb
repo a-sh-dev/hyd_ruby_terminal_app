@@ -12,10 +12,11 @@ display_greeting
 # get username
 
 prompt = TTY::Prompt.new
-name_input = prompt.ask("  Choose a nickname >> ") do |q|
+prompt_text = green_up("  Choose a nickname >> ")
+name_input = prompt.ask(prompt_text) do |q|
   q.required true
   q.validate(/^\w+$/)
-  q.messages[:valid?] = "Please choose one-word only without any symbols"
+  q.messages[:valid?] = "Please choose one-word only without any symbols".red
   q.modify   :down
 end
 
@@ -30,11 +31,6 @@ username.check_system
 username.ask_feeling
 username.log_include("f_before")
 username.check_alert_fbefore
-
-# DEBUNGGING
-# puts
-# puts "  Check log_today outside -- #{username.log_today}"
-
 ask_to_continue
 
 # ------------------------------
@@ -42,32 +38,31 @@ ask_to_continue
 # ------------------------------
 
 display_app_header_laugh
-
 laugh = Laugh.new
 laugh.display_intro
 ask_to_continue
-#* Randomise laugh / entertainment
 
-
-laugh.display_info_after_jokes
-
-
-# Implement json load -- and randomise jokes
-
-# Options on every random output
-# > More
-# > Call it a day
+# Laugh menu & randomise jokes
+laugh.display_joke_menu
 
 # ------------------------------
 #* CALL IT A DAY
 # ------------------------------
 
-# Display info
-# Ask for user's feeling
+# Ask for user's feeling (f_after)
 username.ask_feeling
+username.log_include("f_after")
+username.check_alert_fafter
 
-# Store & merge today's entry
+# DEBUNGGING
+puts "  ============ DEBUGGING ==="
+puts "  Check log_today outside -- #{username.log_today}"
+# DEBUG END
+
+ask_to_continue
+
 # Display info & the log with last 5 entries
+
 # Next option
 
 # ------------------------------

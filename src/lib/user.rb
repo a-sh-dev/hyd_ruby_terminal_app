@@ -49,20 +49,15 @@ class User
     linebreak
   end
 
-  # Connect with Log to ask f_before and f_after
+  # Connect with Log to ask (feeling) f_before and f_after
   def log_include(f_cond)
 
     collected_input = @prompt.collect do
-      key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Anxious Sad Stress))
+      key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Anxious Sad Stress), cycle: true)
     end
 
     # Back-end - update user_today log
     @log_today = @log_today.merge(collected_input)
-
-    # DEBUGGING purpose
-    # puts "  Collected '#{collected_input}' --> #{@log_today}"
-    # puts "  Feeling is #{@log_today[f_cond.to_sym]}"
-    # puts "  Check log_today again yo -- #{@log_today}"
     
   end
 
@@ -83,8 +78,10 @@ class User
     # compare user's input with 'alert' to respond    
     if alert.count(user_alert) == 1
       # respond_alert_fbefore
+      puts "  ======== ALERT CHECKING OK!"
     else
       # respond_normal_fbefore
+      puts "  ======== NORMAL CHECKING OK!"
     end
   end
 

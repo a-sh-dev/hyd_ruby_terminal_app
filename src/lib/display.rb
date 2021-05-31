@@ -55,6 +55,10 @@ def linebreak
   puts Rainbow(line).color("8DEEA6")
 end
 
+def spacing(num)
+  return " " * num
+end
+
 def refresh
   system "clear"
   # sleep(1)
@@ -63,6 +67,36 @@ end
 def green_up(string)
   Rainbow(string).color("8DEEA6")
 end
+
+# Frame box / container
+def div_up(content)
+  border_text = content
+  border = TTY::Box.frame(
+    top: 13,
+    left: 4,
+    width: 64,
+    height: 5,
+    border: :light,
+    align: :center,
+    padding: [1,2],
+    style: {border: {fg: :yellow}}
+  ) { border_text.bold }
+end
+
+def div_btm(content)
+  border_text = content
+  border = TTY::Box.frame(
+    top: 19,
+    left: 4,
+    width: 64,
+    height: 5,
+    border: :light,
+    align: :center,
+    padding: [1,2],
+    style: {border: {fg: :yellow}}
+  ) { border_text.bold }
+end
+
 
 # ------------------------------
 #* Display 
@@ -80,7 +114,7 @@ def display_app_header_laugh
   logo = Title.new
   logo.title(" Dad Jokes")
   linebreak
-  subtitle = "  How about a laugh?".bold
+  subtitle = "  ｡ﾟ･ How about a laugh? ･ﾟ｡".bold
   # puts green_up(subtitle)
   puts subtitle
   linebreak
@@ -89,7 +123,7 @@ end
 # Welcome message greeting
 def display_greeting
   display_app_header
-  puts "  Welcome to the 'How You Doin?' (HYD) app."
+  puts "  ｡ﾟ･ Welcome to the 'How You Doin?' (HYD) app ･ﾟ｡".bold
   linebreak
   puts "  Before we begin, please enter a one-word nickname that"
   puts "  you can remember easily next time."
@@ -122,8 +156,8 @@ end
 
 def ask_to_continue
   prompt = TTY::Prompt.new(active_color: :yellow)
-  continue = prompt.keypress("  >> Press any key to continue")
-  continue.light_green.bold
+  prompt_text = green_up("  >> Press any key to continue")
+  prompt.keypress(prompt_text)
 end
 
 #! Below's method doesn't work when called in hyd_app.rb as a method unfortunately -- local variable issue.
