@@ -3,7 +3,6 @@ GEM
   specs:
     artii (2.1.2)
     colorize (0.8.1)
-    espeak-ruby (1.0.4)
     json (2.5.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
@@ -19,6 +18,7 @@ GEM
       tty-cursor (~> 0.7)
     tty-color (0.6.0)
     tty-cursor (0.7.1)
+    tty-font (0.5.0)
     tty-prompt (0.23.1)
       pastel (~> 0.8)
       tty-reader (~> 0.8)
@@ -43,10 +43,10 @@ PLATFORMS
 DEPENDENCIES
   artii (~> 2.1)
   colorize (~> 0.8.1)
-  espeak-ruby (~> 1.0)
   json (~> 2.5)
   rainbow (~> 3.0)
   tty-box (~> 0.7.0)
+  tty-font (~> 0.5.0)
   tty-prompt (~> 0.23.1)
   tty-spinner (~> 0.9.3)
   tty-table (~> 0.12.0)

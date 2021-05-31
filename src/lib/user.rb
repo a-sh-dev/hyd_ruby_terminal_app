@@ -33,10 +33,9 @@ class User
       puts "  Glad that you're here, #{@user_cap}!"
       linebreak
       wait
-      puts "  Every time you use this app, a log is created and is only"
-      puts "  accessible by you to check on how you doin. So, when you"
-      puts "  use the app next time, please make sure to remember the"
-      puts "  name ⟾  #{@user_cap} that you've entered to login!"
+      puts "  Every time you use this app, a log is created and is only accessible by you"
+      puts "  to check on how you doin. So, when you use the app next time, please make sure"
+      puts "  to remember the name ⟾  #{@user_cap} that you've entered to login!"
       linebreak
       wait_longer
       wait_abit
@@ -58,7 +57,7 @@ class User
 
     # Back-end - update user_today log
     @log_today = @log_today.merge(collected_input)
-    
+
   end
 
   def check_alert_fbefore
@@ -106,8 +105,8 @@ class User
     puts "  It's OK to be not OK."
     linebreak
     wait
-    puts "  You've recognised how you're feeling today, and that's"
-    puts "  a good start! Hopefully you will feel better soon!"
+    puts "  You've recognised how you're feeling today, and that's a good start!"
+    puts "  Take your time to process it and hopefully you will feel better soon!"
     linebreak
     wait_longer
     puts "  Now, lets get ready for an entertainment!"

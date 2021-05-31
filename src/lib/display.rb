@@ -1,35 +1,35 @@
 require 'artii'
 require 'rainbow'
 require 'colorize'
-require 'TTY-prompt'
+require 'tty-prompt'
+require 'tty-font'
 
 require_relative 'log'
 require_relative 'user'
+# require_relative 'ascii_art'
 
 class Title
   
   def initialize
+    # Artii gem has been causing issues and crashes!
     # @title_base = Artii::Base.new :font => 'slant'
     @title_base = Artii::Base.new
+    @font = TTY::Font.new(:doom)  
   end
 
   # Title standard single line
   def title(heading)
     # system "clear"
-    title = @title_base.asciify(heading) 
+    title = @font.write(heading) 
     puts
     puts Rainbow(title).color("8DEEA6") 
   end
-
-  # Title 2 lines
-  def title2l(line1, line2)
+  
+  def title_artii(heading)
     # system "clear"
-    title1 = @title_base.asciify(line1) 
-    title2 = @title_base.asciify(line2)
-    title = title1 + "\n" + title2 
+    title = @title_base.asciify(heading) 
     puts
     puts Rainbow(title).color("8DEEA6") 
-    puts
   end
 
 end
@@ -39,7 +39,6 @@ end
 # Calm Light Green - color("8DEEA6")
 # Deep Blue - color("5257BA")
 # Sky of Ocean - color("82CDE5")
-# Calm Brown - color("907D79")
 # Deep Olive - color("677762")
 # Lilac - color("C5AEEE")
 # Grey - color("C9C9C9")
@@ -49,14 +48,18 @@ end
 #* UI Elements 
 # ------------------------------
 
-# current dash count = 68 characters + 2 for spacing --> 70
+# current dash count = 78 characters + 2 for spacing --> 80
 def linebreak
-  line = "  --------------------------------------------------------------------"
+  line = "  ------------------------------------------------------------------------------"
   puts Rainbow(line).color("8DEEA6")
 end
 
 def spacing(num)
   return " " * num
+end
+
+def arrow
+  return "➤ "
 end
 
 def refresh
@@ -73,8 +76,8 @@ def div_up(content)
   border_text = content
   border = TTY::Box.frame(
     top: 13,
-    left: 4,
-    width: 64,
+    left: 8,
+    width: 66,
     height: 5,
     border: :light,
     align: :center,
@@ -87,8 +90,8 @@ def div_btm(content)
   border_text = content
   border = TTY::Box.frame(
     top: 19,
-    left: 4,
-    width: 64,
+    left: 8,
+    width: 66,
     height: 5,
     border: :light,
     align: :center,
@@ -105,14 +108,14 @@ end
 def display_app_header
   system "clear"
   logo = Title.new
-  logo.title(" HowYouDoin?")
+  logo.title("  HowYouDoin?")
   linebreak
 end
 
 def display_app_header_laugh
   system "clear"
   logo = Title.new
-  logo.title(" Dad Jokes")
+  logo.title("  DadJokes")
   linebreak
   subtitle = "  ｡ﾟ･ How about a laugh? ･ﾟ｡".bold
   # puts green_up(subtitle)
@@ -128,10 +131,6 @@ def display_greeting
   puts "  Before we begin, please enter a one-word nickname that"
   puts "  you can remember easily next time."
   linebreak
-end
-
-def display_refresh
-  
 end
 
 def wait_abit
@@ -156,14 +155,14 @@ end
 
 def ask_to_continue
   prompt = TTY::Prompt.new(active_color: :yellow)
-  prompt_text = green_up("  >> Press any key to continue")
+  prompt_text = green_up("  #{arrow}Press any key to continue")
   prompt.keypress(prompt_text)
 end
 
 #! Below's method doesn't work when called in hyd_app.rb as a method unfortunately -- local variable issue.
 def get_input
   prompt = TTY::Prompt.new
-  name_input = prompt.ask("  Choose a nickname >> ") do |q|
+  name_input = prompt.ask("  Choose a nickname #{arrow}") do |q|
     q.required true
     q.validate(/^\w+$/)
     q.messages[:valid?] = "Please choose one-word only without any symbols"
@@ -172,10 +171,10 @@ def get_input
   # username = User.new(name_input)
 end
 
-#! Re-attempting above validation without tty-prompt. Still unsuccessful - undefined local method error - I tried to declare the name_input in the parameter but still unsuccessful when passed as argument! -- when I tried to declare name_input = "" above the method, User class coulnd't recognise the input after below's method is executed and return with empty string.
+#! Without tty-prompt. Unsuccessful - undefined local method error - Despite declaring the name_input in the parameter, it's still unsuccessful when argument is passed! -- Also tried declaring name_input = "", User class coulnd't recognise the input with below's method and return an empty string.
 def get_and_validate_username_input(name_input)
   # Get user's input
-  print "  Choose a nickname >> "
+  print "  Choose a nickname #{arrow}"
   name_input = gets.strip.downcase
   # Validating input to be one word only without any symbols
   if name_input.match(/^\w+$/)
@@ -189,17 +188,3 @@ end
 #* Unused 
 # ------------------------------
 
-# Options for Entertainment
-def entertainment
-  linebreak
-  puts "Now, please choose from the following options:"
-  linebreak
-  # option 1
-  # puts "Let some dad jokes entertain you!"
-  puts "1. How about a laugh?"
-  # option 2
-  # puts "Not in the mood to laugh?"
-  puts "2. How about an encouragement?"
-  # ask user input
-  
-end

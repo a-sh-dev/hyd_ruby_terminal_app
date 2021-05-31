@@ -5,6 +5,8 @@ require 'rainbow'
 require 'colorize'
 require 'espeak'
 
+require_relative 'display'
+
 # TESTING GEMS!
 
 border_text = "One's really heavy and the other's a little lighter."
@@ -24,8 +26,7 @@ border_text = "One's really heavy and the other's a little lighter."
 line = "  --------------------------------------------------------------------"
 puts Rainbow(line).color("8DEEA6")
 
-puts border
-print "\n" * 3
+puts "  Choose a nickname #{arrow}"
 
 
 # Messagebox

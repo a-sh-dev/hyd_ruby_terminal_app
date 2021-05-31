@@ -26,17 +26,17 @@ class Laugh
     linebreak
     wait_longer
   end
-
+  
   def display_info_after_jokes
     display_app_header
-    puts "  Hopefully, you were entertained in any way!"
+    puts "  ｡ﾟ･ Hopefully, you were entertained in any way! ･ﾟ｡".bold
     linebreak
     wait_abit
-    puts "  Whatever your response is (whether you found it hilarious,"
-    puts "  or lame), make sure you respond to the jokes, even with a groan!"
+    puts "  Whatever your response is (whether you found it hilarious, or lame),"
+    puts "  make sure you respond to the jokes, even if it's with a groan!"
     linebreak
     wait_longer
-    puts "  The same way we are learning to respond to our feelings"
+    puts "  The same way we are learning to process and respond to our feelings"
     puts "  and emotions, however good or bad they are " + green_up(":-)")
     linebreak
     wait_longer
@@ -59,7 +59,7 @@ class Laugh
     randomise_jokes
     
     loop do
-      menu_input = @prompt.select("  ", cycle: true) do |menu|
+      menu_input = @prompt.select("", cycle: true) do |menu|
         menu.choice "More jokes", 1
         menu.choice "Call it a day", 2
       end
@@ -94,13 +94,13 @@ class Laugh
   end
   
   def loading_punchline
-    text = "#{spacing(34)}:spinner".green
+    text = "#{spacing(40)}:spinner".green
     spinner = TTY::Spinner.new(text, format: :toggle, hide_cursor: true)
     spinner.auto_spin
     
     sleep(4)
     
-    arrow = "  ⤋  ".green
+    # arrow = "  ⤋  ".green
     spinner.stop("")
   end
   

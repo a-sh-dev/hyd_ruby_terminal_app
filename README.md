@@ -151,7 +151,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 4. UI add-ons, text colors *– Rainbow*
 5. UI add-ons, another text colors *– Colorize* 
 6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – *TTY box*
-7. UI add-ons, an animated spinner to display 'loading time' allowing user to think *– TTY Spinner*
+7. UI add-ons, an animated spinner to display 'loading time' allowing user to think – [*TTY Spinner*](https://github.com/piotrmurach/tty-spinner)
 8. Data persistence feature for saving and accessing structured data – *JSON*
 
 ### Limitations & Future Development Plan

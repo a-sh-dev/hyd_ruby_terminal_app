@@ -6,15 +6,16 @@ require_relative 'user'
 
 class Log
 
-  attr_accessor :user_alert
-  attr_reader :time, :user_today
+  attr_reader :time, :file_path
+  attr_accessor :user_today
 
   def initialize
+    # @user = name_input
     @file_path = "./data/users/#{@user}.json"
+    @id = Time.new.strftime("%y%m%d")
     @date = Time.new.strftime("%a, %d %b '%y")
-    @user_today = {time: @date }
+    @user_today = {id: @id, time: @date }
     @prompt = TTY::Prompt.new(active_color: :yellow)
-    
   end
   
   # Add today's @user_today entry to json
@@ -29,6 +30,5 @@ class Log
 
 
 end
-
 
 

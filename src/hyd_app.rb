@@ -12,7 +12,7 @@ display_greeting
 # get username
 
 prompt = TTY::Prompt.new
-prompt_text = green_up("  Choose a nickname >> ")
+prompt_text = green_up("  Choose a nickname #{arrow}")
 name_input = prompt.ask(prompt_text) do |q|
   q.required true
   q.validate(/^\w+$/)
@@ -58,6 +58,8 @@ username.check_alert_fafter
 puts "  ============ DEBUGGING ==="
 puts "  Check log_today outside -- #{username.log_today}"
 # DEBUG END
+
+puts
 
 ask_to_continue
 
