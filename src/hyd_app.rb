@@ -1,4 +1,4 @@
-require_relative './lib/display'
+require_relative './lib/methods'
 require_relative './lib/log'
 require_relative './lib/user'
 require_relative './lib/laugh'
@@ -56,15 +56,9 @@ end
 # Ask for user's feeling (f_after)
 username.ask_feeling
 username.log_include("f_after")
-username.check_alert_fafter
-
-puts "  ====== CHECKING ======="
-puts "  username.log_today --> #{username.log_today}"
-puts "  ====== END CHECKING ======="
-
-
 
 # Display log with 5 last entries
+username.check_alert_fafter
 
 # ask_to_continue
 

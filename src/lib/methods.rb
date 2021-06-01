@@ -34,6 +34,21 @@ end
 # Dark GreenGrey - color("3F4D49")
 
 # ------------------------------
+#* GENERAL METHODS W/O CLASS
+# ------------------------------
+
+  def json_data_to_array(file_path, array)
+    json_file = JSON.parse(File.read(file_path))
+    array = json_file.map do |data|
+      data.transform_keys(&:to_sym)
+    end
+  rescue Errno::ENOENT
+    File.open(file_path, 'w+')
+    File.write(file_path, [])
+    retry
+  end
+
+# ------------------------------
 #* UI Elements 
 # ------------------------------
 

@@ -1,7 +1,7 @@
 require 'json'
 require 'tty-prompt'
 
-require_relative 'display'
+require_relative 'methods'
 require_relative 'user'
 
 class Log
@@ -11,7 +11,7 @@ class Log
   def initialize
     # @user = name_input
     # @file_path = "./data/users/#{@user}.json"
-    @timestamp = Time.new.strftime("%y%m%d")
+    @timestamp = Time.new.strftime("%y%m%d%k%M")
     @date = Time.new.strftime("%a, %d %b '%y")
     @user_today = {id: @timestamp.to_i, date: @date }
   end

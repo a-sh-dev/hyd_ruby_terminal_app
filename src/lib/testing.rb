@@ -7,7 +7,7 @@ require 'espeak'
 require 'tty-table'
 require 'pastel'
 
-require_relative 'display'
+require_relative 'methods'
 
 # TESTING GEMS!
 

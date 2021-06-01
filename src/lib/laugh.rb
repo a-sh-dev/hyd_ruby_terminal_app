@@ -4,7 +4,7 @@ require 'tty-prompt'
 require 'tty-box'
 require 'colorize'
 
-require_relative 'display'
+require_relative 'methods'
 
 class Laugh
 
