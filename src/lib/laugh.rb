@@ -59,7 +59,7 @@ class Laugh
     randomise_jokes
     
     loop do
-      menu_input = @prompt.select("", cycle: true) do |menu|
+      menu_input = @prompt.select(" ", cycle: true) do |menu|
         menu.choice "More jokes", 1
         menu.choice "Call it a day", 2
       end

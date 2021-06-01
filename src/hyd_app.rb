@@ -43,8 +43,13 @@ laugh.display_intro
 ask_to_continue
 
 # Laugh menu & randomise jokes
-laugh.display_joke_menu
-
+begin
+  laugh.display_joke_menu
+rescue Interrupt, Errno::EINTR => e
+  puts "Oops, an error occured: #{e}."
+  puts "Please wait"
+  retry
+end
 # --------------------------------------
 #* CALL IT A DAY & DISPLAY LOG ENTRIES
 # --------------------------------------

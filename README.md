@@ -20,13 +20,13 @@ GitHub repo:
 
 **Defining the problem.** Not every day is filled with rainbows and birds chirping in your surroundings. People do have bad days, feel down, sad, discouraged or simply bored. When they are not feeling positive, *it is OK to be not OK*, it is part of being human that we have emotions. 
 
-***How You Doin?*** (HYD) is a terminal app that aims to provide entertainment to the user, in the form of jokes (dad jokes to be specific 🙂) and also positive encouragements as a relief or comfort when they are feeling unwell emotionally.   
+***How You Doin?*** (HYD) is a terminal app that aims to provide a little entertainment to the user, in the form of ***dad jokes*** and also a mental health log-sysem to check on how they're doing.
 
-HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh or smile every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), they may groan, but at least they *respond* to it! And hopefully, HYD can provide some sort of relief, comfort, or at least a smile and make the user feel better, and then motivates the user to *respond* to any negative feelings they are currently facing, positively. 
+HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although he says it flirtatiously and cheekily, it never fails to make the other party laugh or smile every time he says it. It will be ambitious to guarantee users to laugh after using the app (especially with dad jokes!), they may groan, but at least they may *respond* to it! And hopefully, HYD can provide some sort of relief, comfort, or at least a smile and make the user feel better, and then motivates the user to *respond* to any negative feelings they are currently facing, positively. 
 
 ![Joey - How you doin?](./docs/hyd_joey.gif)
 
-The app also features to record a log of how the user is doing (feeling) when and after using it, so they can track their own mental wellbeing. When needed, HYD also responds to the user by providing mental health facts and advice as their call to action. 
+HYD's log-system feature is basically to record a log of how the user is doing (feeling) when and after using it, so they can track their own mental wellbeing. When needed, HYD also responds to the user by providing mental health advice and helpline as their call to action. 
 
 ### Target Audience
 
@@ -71,7 +71,7 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 ##### Features 2.2 –*"How about an encouragement?"*
 
-- Same features as above
+- Same features as above and will be implemented in the next version.
 
 ### User Experience – How to Use
 
@@ -81,7 +81,7 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 #### Pseudocode
 
-At the start of the app, a welcome and general app info (what it is and how to use it) is displayed.
+At the start of the app, a welcome and general app info is displayed.
 
 The user is asked to enter a unique name or nickname to be used to login next time and to access their log (at this point, password is not available yet).
 
@@ -103,35 +103,35 @@ There are two categories of feelings that the user can choose (the two category 
 The two main Entertainment info and options are displayed:
 
 - ***How about a laugh?***
-  - When chosen, a male speech/speak function can be enabled to read out the joke
-  - A (randomised) dad joke is displayed, and if it is a dad joke question, the answer is revealed after a few seconds delay
-  - Every joke will prompt a response:
-    - 🙁  😆
+  - A (randomised) dad joke is displayed. Every dad joke is a set of short two parts. They are displayed between an interval of  3-5 few seconds
   - Subsequenty, three options are available:
     - More
-    - How about an encouragement?
+    - How about an encouragement? (when it's implemented)
     - Call it a day
-- ***How about an encouragement?***
-  - Generally the same as above, except a female speech/speak function can be enabled to read out the encouragement and also the exception of response prompting to every encouragement (with the smileys)
+- ***How about an encouragement?*** (not available yet – will be implemented at a later version)
+  - Generally the same as above
   - Subsequenty, three options are available:
     - More
-    - How about a laugh?
+    - How about a laugh? 
     - Call it a day
 
 When the user calls it a day, the last entry point is prompted to update how their feeling, after displaying *"So, user_name... How you doing (feeling) now?"*
 
 - *Alert/Concern* category:
-  - Worse
-- Same-same
+  - Sad
+  - Stress
+  - Anxious
 - *Normal* category:
-  - Better
+  - Bored
+  - Just OK
+  - Happy
 
-The last 5 entries of the log is displayed according to the date, day, time and their feelings before and after. The user can navigate to the next screen to move on.
+The last 5 entries of the log is displayed according to the date and their feelings before and after. The user can navigate to the next screen to move on.
 
-If the user's current feeling is in the *alert/concern* category, a mental health facts and advice is displayed.
+If the user's current feeling is in the *alert/concern* category, a mental health advice and helpline will be displayed.
 
 - The information is displayed to cater for the user's initial entry: sad / stress / anxious
-- A helpline number is also displayed
+- A helpline number is also displayed subsequently
 
 A thank you for using the app is displayed with short copyright and credit info. The app will automatically exit in a few seconds.
 
@@ -146,7 +146,7 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 #### Ruby Gems Files Integrations
 
 1. Easy navigation - up and down arrow navigations *– TTY prompt*
-2. ASCII art text generator page header / title *– Artii*
+2. ASCII art text generator page header / title *– TTY font*
 3. Tables implementations for displaying log entries *– Terminal Table*
 4. UI add-ons, text colors *– Rainbow*
 5. UI add-ons, another text colors *– Colorize* 
@@ -156,9 +156,10 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 
 ### Limitations & Future Development Plan
 
-- Due to time constraints, only the dad-jokes (*How about a Laugh?*) part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and simple word guessing games.
-- Possiblity to add dad-jokes API integration for more external unlimited sources.
+- Due to time constraints, only the dad-jokes (*How about a Laugh?*) part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and perhaps simple word guessing games.
+- Possiblity to add dad-jokes API integration for more maintainable external sources.
 - Randomised jokes can be filtered so it appear only once. There are currently 50 jokes in the material.
+- Speech features didn't work in this version, hope to be able to implement a text-to-speech feature. 
 - Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
 
 ### Credits
