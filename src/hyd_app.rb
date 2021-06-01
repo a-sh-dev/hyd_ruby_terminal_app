@@ -58,6 +58,14 @@ username.ask_feeling
 username.log_include("f_after")
 
 # Display log with 5 last entries
+wait_abit
+begin
+  username.display_log
+rescue Interrupt, Errno::EINTR => e
+  puts "Oops, an error occured: #{e}."
+  retry
+end
+ask_to_continue
 username.check_alert_fafter
 
 # ask_to_continue
@@ -76,4 +84,4 @@ username.check_alert_fafter
 #* BYE
 # ------------------------------
 
-# username.bye
+username.bye

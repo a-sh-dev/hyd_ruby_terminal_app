@@ -54,8 +54,14 @@ end
 
 # current dash count = 78 characters + 2 for spacing --> 80
 def linebreak
-  line = "  ------------------------------------------------------------------------------"
+  line = "  " + ("-" * 78)
   puts Rainbow(line).color("8DEEA6")
+end
+
+def linerow(num)
+  line = "    " + ("-" * num)
+  # puts Rainbow(line).color("C9C9C9")
+  puts line.green
 end
 
 def spacing(num)
@@ -129,9 +135,25 @@ def display_app_header_laugh
   logo = Title.new
   logo.title("  DadJokes")
   linebreak
-  subtitle = "  ｡ﾟ･ How about a laugh? ･ﾟ｡".bold
-  # puts green_up(subtitle)
-  puts subtitle
+  puts "  ｡ﾟ･ How about a laugh? ･ﾟ｡".bold
+  linebreak
+end
+
+def display_app_header_log
+  system "clear"
+  logo = Title.new
+  logo.title("  LogEntries")
+  linebreak
+  puts "  ｡ﾟ･ How you are doing in the last 5 days of using this app ･ﾟ｡".bold
+  linebreak
+end
+
+def display_app_header_bye
+  system "clear"
+  logo = Title.new
+  logo.title("  TakeCare!")
+  linebreak
+  puts  "  ｡ﾟ･ Thank you for using the HYD app! ･ﾟ｡".bold
   linebreak
 end
 
