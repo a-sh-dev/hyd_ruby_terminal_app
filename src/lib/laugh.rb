@@ -19,12 +19,12 @@ class Laugh
   def display_intro
     puts "  Let some dad jokes entertain you!"
     linebreak
-    wait
+    wait_abit
     puts "  Every dad joke has a set of two parts. They are displayed between"
-    puts "  intervals of 4 seconds, allowing you time to digest the joke... "
+    puts "  intervals of a few seconds, allowing you time to digest the joke... "
     puts "  although you're not really supposed to think much about it!"
     linebreak
-    wait_longer
+    wait
   end
   
   def display_info_after_jokes
@@ -35,9 +35,8 @@ class Laugh
     puts "  Whatever your response is (whether you found it hilarious, or lame),"
     puts "  make sure you respond to the jokes, even if it's with a groan!"
     linebreak
-    wait_longer
     puts "  The same way we are learning to process and respond to our feelings"
-    puts "  and emotions, however good or bad they are " + green_up(":-)")
+    puts "  and emotions, however good or bad they are. Let's finalise today's log."
     linebreak
     wait_longer
   end
@@ -67,7 +66,7 @@ class Laugh
       case menu_input
       when 1
         display_app_header_laugh
-        randomise_jokes 
+        randomise_jokes
       when 2
         display_info_after_jokes
         break
@@ -98,16 +97,9 @@ class Laugh
     spinner = TTY::Spinner.new(text, format: :toggle, hide_cursor: true)
     spinner.auto_spin
     
-    sleep(4)
+    sleep(2.5)
     
-    # arrow = "  ⤋  ".green
     spinner.stop("")
   end
   
-  private
-  
-
-
 end
-
-# TESTING

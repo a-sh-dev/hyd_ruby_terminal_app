@@ -47,7 +47,6 @@ begin
   laugh.display_joke_menu
 rescue Interrupt, Errno::EINTR => e
   puts "Oops, an error occured: #{e}."
-  puts "Please wait"
   retry
 end
 # --------------------------------------
@@ -58,10 +57,16 @@ end
 username.ask_feeling
 username.log_include("f_after")
 username.check_alert_fafter
-ask_to_continue
+
+puts "  ====== CHECKING ======="
+puts "  username.log_today --> #{username.log_today}"
+puts "  ====== END CHECKING ======="
+
+
 
 # Display log with 5 last entries
 
+# ask_to_continue
 
 # ------------------------------
 #* MENTAL HEALTH DISPLAY

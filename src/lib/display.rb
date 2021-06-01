@@ -98,8 +98,6 @@ def div(content)
   ) { border_text.bold }
 end
 
-
-
 # ------------------------------
 #* Display 
 # ------------------------------
@@ -156,19 +154,6 @@ def ask_to_continue
   prompt = TTY::Prompt.new(active_color: :yellow)
   prompt_text = green_up("  #{arrow}Press any key to continue")
   prompt.keypress(prompt_text)
-end
-
-#! Below's method doesn't work when called in hyd_app.rb
-#! as a method unfortunately -- local variable issue.
-def get_input
-  prompt = TTY::Prompt.new
-  name_input = prompt.ask("  Choose a nickname #{arrow}") do |q|
-    q.required true
-    q.validate(/^\w+$/)
-    q.messages[:valid?] = "Please choose one-word only without any symbols"
-    q.modify   :down
-  end
-  # username = User.new(name_input)
 end
 
 #! Without tty-prompt. Unsuccessful - undefined local method

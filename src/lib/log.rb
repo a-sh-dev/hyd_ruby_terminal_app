@@ -6,25 +6,18 @@ require_relative 'user'
 
 class Log
 
-  attr_reader :time, :file_path
-  attr_accessor :user_today
+  attr_reader :time, :user_today
 
   def initialize
     # @user = name_input
-    @file_path = "./data/users/#{@user}.json"
+    # @file_path = "./data/users/#{@user}.json"
     @timestamp = Time.new.strftime("%y%m%d")
     @date = Time.new.strftime("%a, %d %b '%y")
-    @user_today = {id: @timestamp, time: @date }
-    @prompt = TTY::Prompt.new(active_color: :yellow)
-  end
-  
-  # Add today's @user_today entry to json
-  def merge_today_entry(file_path)
-    json file << @user_today
+    @user_today = {id: @timestamp.to_i, date: @date }
   end
   
   # Display 5 last entries, load from json
-  def display_entries
+  def table
     
   end
 

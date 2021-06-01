@@ -85,9 +85,9 @@ At the start of the app, a welcome and general app info is displayed.
 
 The user is asked to enter a unique name or nickname to be used to login next time and to access their log (at this point, password is not available yet).
 
-User then is greeted with their name and asked, "*How you doin (feeling), today?"*
+User then is greeted with their name and asked, "*How you doin (feeling), today?"* – Greetings will be displayed differently. For an existing user, a  "Welcome back!" is displayed and the next section follow immediately. For a new user, a basic information about the log system is introduced first.
 
-Other than to provide relief and entertainment to the user, the app also functions to track the user's feeling. There are two entry points for keeping track of 'today's entry', below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
+The app also functions to track the user's feeling. There are two entry points for keeping track of 'today's entry', below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
 
 There are two categories of feelings that the user can choose (the two category names are not visible to the user, only for back-end purpose):
 
@@ -106,25 +106,29 @@ The two main Entertainment info and options are displayed:
   - A (randomised) dad joke is displayed. Every dad joke is a set of short two parts. They are displayed between an interval of  3-5 few seconds
   - Subsequenty, three options are available:
     - More
-    - How about an encouragement? (when it's implemented)
+    - How about an encouragement? *(not yet implemented)*
     - Call it a day
-- ***How about an encouragement?*** (not available yet – will be implemented at a later version)
+- ***How about an encouragement?*** *(not available yet – will be implemented at a later version)*
   - Generally the same as above
   - Subsequenty, three options are available:
     - More
     - How about a laugh? 
     - Call it a day
 
-When the user calls it a day, the last entry point is prompted to update how their feeling, after displaying *"So, user_name... How you doing (feeling) now?"*
+When the user calls it a day, the last entry point is prompted to update how they're feeling, by displaying *"So, user_name... How you doing (feeling) now?"*. 
 
-- *Alert/Concern* category:
-  - Sad
-  - Stress
-  - Anxious
-- *Normal* category:
-  - Bored
-  - Just OK
-  - Happy
+- *Ideally*, this last log-sytem part should be asking if the user is feeling: **better**, **worse** or **the same** (nothing change). Under the better or worse options, the user also inputs the scale of it. For example, from the scale of 1-10, how worse/better their feeling is now. *(future implementation plan)*
+- For this version, the user will be asked the same question as the first time they're asked, 
+  - *Alert/Concern* category:
+    - Sad
+    - Stress
+    - Anxious
+  - *Normal* category:
+    - Bored
+    - Just OK
+    - Happy
+
+In the back-end, the user's 'today entry' is finalised and saved into the user's file.
 
 The last 5 entries of the log is displayed according to the date and their feelings before and after. The user can navigate to the next screen to move on.
 
@@ -150,9 +154,9 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 3. Tables implementations for displaying log entries *– Terminal Table*
 4. UI add-ons, text colors *– Rainbow*
 5. UI add-ons, another text colors *– Colorize* 
-6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – *TTY box*
+6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – *TTY Box*
 7. UI add-ons, an animated spinner to display 'loading time' allowing user to think – [*TTY Spinner*](https://github.com/piotrmurach/tty-spinner)
-8. Data persistence feature for saving and accessing structured data – *JSON*
+8. Data persistence feature for saving and accessing structured data – [*JSON*](https://flori.github.io/json/)
 
 ### Limitations & Future Development Plan
 
@@ -160,7 +164,10 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 - Possiblity to add dad-jokes API integration for more maintainable external sources.
 - Randomised jokes can be filtered so it appear only once. There are currently 50 jokes in the material.
 - Speech features didn't work in this version, hope to be able to implement a text-to-speech feature. 
-- Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
+- Log-system:
+  - Implement the *'better or worse (with scale-measure slider) or same-same'* options to finalise log entry.
+  - Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
+  - Add feature to send log entries to user's e-mail.
 
 ### Credits
 

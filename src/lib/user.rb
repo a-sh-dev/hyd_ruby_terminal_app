@@ -7,15 +7,17 @@ require_relative 'display'
 require_relative 'log'
 
 class User
-  attr_reader :user, :user_cap, :log_today
+  attr_reader :user_cap, :log_today
+  attr_accessor :user
 
   def initialize(name_input)
     @user = name_input
     @user_cap = @user.capitalize.light_yellow.bold
     @file_path = "./data/users/#{@user}.json"
     @prompt = TTY::Prompt.new(active_color: :yellow)
-    # @log = Log.new
-    @log_today = Log.new.user_today
+    @log = Log.new
+    @log_today = @log.user_today
+    # @log_array = self.load_entries_to_array    
   end
 
   def check_system
@@ -25,7 +27,7 @@ class User
       puts "  Welcome back, #{@user_cap}!"
       puts "  Glad to see you again!"
       linebreak
-    else # New user
+    else # Create new user
       user_is_new
       display_app_header
       puts "  Glad that you're here, #{@user_cap}!"
@@ -58,6 +60,7 @@ class User
 
   end
 
+  # Respond to Feeling :BEFORE
   def check_alert_fbefore
     alert = ["Sad", "Stress", "Anxious"]
     user_alert = @log_today[:f_before]
@@ -68,7 +71,8 @@ class User
       respond_normal_fbefore
     end
   end
-
+  
+  # Respond to Feeling :AFTER
   def check_alert_fafter
     alert = ["Sad", "Stress", "Anxious"]
     user_alert = @log_today[:f_after]
@@ -80,13 +84,46 @@ class User
       # respond_normal_fbefore
       puts "  ======== NORMAL CHECKING OK!"
     end
+    save_today_entry
+    # DEBUGGING
+    # load_entries_to_array
+    puts "  === CHECKING LOG : user.rb --> for #{@user} ==="
+    puts "  === SHOWING @log_array ===="
+    # display_entries
+  end
+
+  def display_entries
+    load_entries_to_array
+    @log_array.each_with_index do |index, entry|
+      puts "  #{index +1}. #{entry[:date]} | Feelings (before): #{entry[:f_before]} | Feelings (after): #{entry[:f_after]}"
+      puts "  -----------"
+    end
+    # call @log_table - nice format view
+  end
+
+  # Add today's @user_today entry to json
+  def save_today_entry
+    # File.write(@file_path, @log_today.to_json)
+    File.write(@file_path, JSON.dump(@log_today))
+  end
+
+  # Load all user's recorded entries to @log_array
+  def load_entries_to_array
+    json_file = JSON.parse(File.read(@file_path))
+    @log_array = json_file.map do |entry|
+      entry.transform_keys(&:to_sym)
+    end
+  rescue Errno::ENOENT
+    File.open(user_file_path, 'w+')
+    File.write(user_file_path, [])
+    retry
   end
 
   # Exit message
   def bye
     linebreak
     puts "  Thank you for using the HYD app."
-    puts "  See you next time, #{@user_cap}!"
+    puts "  See you next time, #{@user_cap}! Please take care!"
     linebreak
     puts "  For further info, please check the documentation."
     by_ash = "  Crafted with ❤ by a-sh. © 2021"
@@ -100,7 +137,7 @@ class User
     linebreak
     wait
     puts "  " + green_up(":-(") + "  That must be really hard for you, #{@user_cap}."
-    wait_longer
+    wait_long
     puts "  It's OK to be not OK."
     linebreak
     wait
