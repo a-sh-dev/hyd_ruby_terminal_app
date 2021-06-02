@@ -1,8 +1,6 @@
 require_relative './lib/methods'
-require_relative './lib/log'
 require_relative './lib/user'
 require_relative './lib/laugh'
-
 
 # --------------------------------------
 #* GREETINGS & GET USER 
@@ -19,7 +17,7 @@ name_input = prompt.ask(prompt_text) do |q|
   q.messages[:valid?] = "Please choose one-word only without any symbols".red
   q.modify   :down
 end
-
+# set username
 username = User.new(name_input)
 # check for existing user / create new
 username.check_system
@@ -66,19 +64,17 @@ rescue Interrupt, Errno::EINTR => e
   retry
 end
 ask_to_continue
-username.check_alert_fafter
-
-# ask_to_continue
 
 # ------------------------------
 #* MENTAL HEALTH DISPLAY
 # ------------------------------
 
-# --if in alert/concern category
-# Check with user's alert/concern feeling
-# Display it's ok to...
-# Randomise mhealth display
-# Display helpline
+begin
+  username.check_alert_fafter
+rescue Interrupt, Errno::EINTR => e
+  puts "Oops, an error occured: #{e}."
+  retry
+end
 
 # ------------------------------
 #* BYE

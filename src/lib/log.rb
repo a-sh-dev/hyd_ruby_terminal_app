@@ -17,13 +17,13 @@ class Log
   
   def display_entries(array)
     # sort the entries first
-    sorted_log = array.sort_by { |entry| entry[:id] }.reverse
+    sorted_log = array.reverse
     # display by iterating up to 5 entries
     sorted_log.each_with_index do |(key, value), index|
       linerow(60)
       no = "#{index +1}.".bold
       no_g = green_up(no)
-      arrow = green_up(" ⇢ ")
+      arrow = green_up(" → ")
       puts "    #{no_g} #{key[:date]} #{arrow} Feelings: #{key[:f_before]} & #{key[:f_after]}"
       break if index == 4
     end

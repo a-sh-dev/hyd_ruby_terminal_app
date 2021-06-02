@@ -149,25 +149,24 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 
 #### Ruby Gems Files Integrations
 
-1. Easy navigation - up and down arrow navigations *– TTY prompt*
-2. ASCII art text generator page header / title *– TTY font*
-3. Tables implementations for displaying log entries *– Terminal Table*
-4. UI add-ons, text colors *– Rainbow*
-5. UI add-ons, another text colors *– Colorize* 
-6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – *TTY Box*
+1. Easy navigation (up and down arrow navigations) to prevent mistyping and robust prompt features with validations – [*TTY prompt*](https://github.com/piotrmurach/tty-prompt)
+2. ASCII art text generator page header / title – [*TTY font*](https://github.com/piotrmurach/tty-font)
+4. UI add-ons, text colors – [*Rainbow*](https://github.com/sickill/rainbow)
+5. UI add-ons, another text colors – [*Colorize*](https://github.com/fazibear/colorize) 
+6. UI add-ons, to display (short) dad jokes and improve better readability and visualisation – [*TTY Box*](https://github.com/piotrmurach/tty-box)
 7. UI add-ons, an animated spinner to display 'loading time' allowing user to think – [*TTY Spinner*](https://github.com/piotrmurach/tty-spinner)
-8. Data persistence feature for saving and accessing structured data – [*JSON*](https://flori.github.io/json/)
+8. Data persistence feature for saving and accessing structured data files – [*JSON*](https://flori.github.io/json/)
 
 ### Limitations & Future Development Plan
 
 - Due to time constraints, only the dad-jokes (*How about a Laugh?*) part is implementable. Hope to be able to implement more entertainment, such as encouragements (with proper permissions obtained for external sources) and perhaps simple word guessing games.
 - Possiblity to add dad-jokes API integration for more maintainable external sources.
-- Randomised jokes can be filtered so it appear only once. There are currently 50 jokes in the material.
+- Randomised jokes can be filtered so each joke only displayed once. There are currently 50 jokes in the provided material.
 - Speech features didn't work in this version, hope to be able to implement a text-to-speech feature. 
-- Log-system:
+- Log-system future development plan:
   - Implement the *'better or worse (with scale-measure slider) or same-same'* options to finalise log entry.
   - Possibility to add more feelings and emotions in the option list and a function to describe user's own emotions as well as adding short descriptions for the user log entries. 
-  - Add feature to send log entries to user's e-mail.
+  - Add a feature to send log entries to user's e-mail.
 
 ### Credits
 

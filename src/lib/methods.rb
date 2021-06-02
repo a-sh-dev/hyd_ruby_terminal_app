@@ -2,6 +2,7 @@ require 'rainbow'
 require 'colorize'
 require 'tty-prompt'
 require 'tty-font'
+require 'tty-box'
 
 require_relative 'log'
 require_relative 'user'
@@ -23,15 +24,8 @@ class Title
 
 end
 
-# Rainbow(text).color("C5AEEE")  
 # color list (HEX):
-# Calm Light Green - color("8DEEA6")
-# Deep Blue - color("5257BA")
-# Sky of Ocean - color("82CDE5")
-# Deep Olive - color("677762")
-# Lilac - color("C5AEEE")
-# Grey - color("C9C9C9")
-# Dark GreenGrey - color("3F4D49")
+# Calm Light Green - color("8DEEA6") << PRIMARY COLOR
 
 # ------------------------------
 #* GENERAL METHODS W/O CLASS
@@ -52,7 +46,6 @@ end
 #* UI Elements 
 # ------------------------------
 
-# current dash count = 78 characters + 2 for spacing --> 80
 def linebreak
   line = "  " + ("-" * 78)
   puts Rainbow(line).color("8DEEA6")
@@ -62,6 +55,12 @@ def linerow(num)
   line = "    " + ("-" * num)
   # puts Rainbow(line).color("C9C9C9")
   puts line.green
+end
+
+def linerow_yellow(num)
+  line = "    " + ("-" * num)
+  # puts Rainbow(line).color("C9C9C9")
+  puts line.yellow
 end
 
 def spacing(num)
@@ -105,20 +104,6 @@ def div_btm(content)
   ) { border_text.bold }
 end
 
-def div(content)
-  border_text = content
-  border = TTY::Box.frame(
-    top: 19,
-    left: 8,
-    width: 66,
-    height: 5,
-    border: :light,
-    align: :center,
-    padding: [1,2],
-    style: {border: {fg: :green}}
-  ) { border_text.bold }
-end
-
 # ------------------------------
 #* Display 
 # ------------------------------
@@ -139,12 +124,21 @@ def display_app_header_laugh
   linebreak
 end
 
-def display_app_header_log
+def display_app_header_log(user)
   system "clear"
   logo = Title.new
   logo.title("  LogEntries")
   linebreak
-  puts "  ｡ﾟ･ How you are doing in the last 5 days of using this app ･ﾟ｡".bold
+  puts "  ｡ﾟ･ How #{user} is doing in the last 5 days of using this app ･ﾟ｡".bold
+  linebreak
+end
+
+def display_app_header_mhealth(user)
+  system "clear"
+  logo = Title.new
+  logo.title("  SelfCare")
+  linebreak
+  puts "  ｡ﾟ･ Here are some tips for looking after yourself, #{user}･ﾟ｡".bold
   linebreak
 end
 
@@ -193,6 +187,10 @@ def ask_to_continue
   prompt.keypress(prompt_text)
 end
 
+# ------------------------------
+#* Unused 
+# ------------------------------
+
 #! Without tty-prompt. Unsuccessful - undefined local method
 #! error - Despite declaring the name_input in the parameter, 
 #! it's still unsuccessful when argument is passed! -- Also 
@@ -210,7 +208,4 @@ def get_and_validate_username_input(name_input)
   end
 end
 
-# ------------------------------
-#* Unused 
-# ------------------------------
 

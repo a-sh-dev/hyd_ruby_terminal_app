@@ -5,6 +5,7 @@ require 'tty-spinner'
 
 require_relative 'methods'
 require_relative 'log'
+require_relative 'mhealth'
 
 class User
   attr_reader :user_cap, :log_today, :log_array
@@ -15,10 +16,10 @@ class User
     @user_cap = @user.capitalize.light_yellow.bold
     @file_path = "./data/users/#{@user}.json"
     @prompt = TTY::Prompt.new(active_color: :yellow)
+    @mhealth = MHealth.new
     @log = Log.new
     @log_today = @log.user_today
-    @log_array = []
-    # @log_array = self.load_entries_to_array    
+    @log_array = []  
   end
 
   def check_system
@@ -49,19 +50,19 @@ class User
     linebreak
   end
 
-  # Connect with Log to ask (feeling) f_before and f_after
+  # connect with Log to ask (feeling) f_before and f_after
   def log_include(f_cond)
 
     collected_input = @prompt.collect do
       key(f_cond.to_sym).select("  Right now, I feel:", %w(Bored Average Happy Anxious Sad Stress), cycle: true)
     end
 
-    # Back-end - update user_today log
+    # back-end - update user_today log
     @log_today = @log_today.merge(collected_input)
 
   end
 
-  # Respond to Feeling :BEFORE
+  # respond to Feeling :BEFORE
   def check_alert_fbefore
     alert = ["Sad", "Stress", "Anxious"]
     user_alert = @log_today[:f_before]
@@ -73,39 +74,27 @@ class User
     end
   end
   
-  # Respond to Feeling :AFTER - if yes call mhealth
+  # respond to Feeling :AFTER - if yes call mhealth
   def check_alert_fafter
     alert = ["Sad", "Stress", "Anxious"]
     user_alert = @log_today[:f_after]
     # compare user's input with 'alert' to respond    
     if alert.count(user_alert) == 1
       # call mhealth
-      puts "  ======== ALERT: DISPLAY MHEALTH INFO"
-      puts
-    else
+      @mhealth.respond(@user)
+      @mhealth.helpline(@user)
     end
-
-    # DEBUGGING
-    # load_entries_to_array
-    # puts "  === SHOWING @log_array after being merged with @log_today ===="
-    # display_test = @log_array.each do |set|
-    #   puts "  --> #{set}"        
-    # end
-    # puts
-    # puts "  === #{@log_array}"
-    # END OF DEBUGGING
   end
-
-  # linerow(num)
 
   def display_log
     linebreak
+    wait_abit
     puts "  Finalising your log entry. Your log entries will be displayed shortly..."
     linebreak
     # back-end load & save
     save_today_entry
     ask_to_continue
-    display_app_header_log
+    display_app_header_log(@user_cap)
     puts
     puts
     @log.display_entries(@log_array)
@@ -115,11 +104,13 @@ class User
 
   def save_today_entry
     unless file_empty?
-      # if file is not empty, load data first into an array > methods.rb
+      # for existing logs, load data first into an array > 'json_data_to_array' is in methods.rb
       @log_array = self.json_data_to_array(@file_path, @log_array)
+
+      add_today_log_to_array
     else      
-      temp_array = @log_today
-      @log_array << temp_array
+      # when file is empty
+      add_today_log_to_array
     end 
     # save data to json
     File.write(@file_path, @log_array.to_json)
@@ -131,6 +122,8 @@ class User
     puts
     puts
     puts "  See you next time, #{@user_cap}!"
+    puts
+    puts
     linebreak
     puts "  For further info about this app, please check the documentation."
     by_ash = "  Crafted with ❤ by a-sh. © 2021"
@@ -141,6 +134,11 @@ class User
   end
   
   private
+
+  def add_today_log_to_array
+    temp_array = @log_today
+    @log_array << temp_array
+  end
 
   def existing_user
     File.exist?(@file_path)
