@@ -10,6 +10,12 @@ GitHub repo:
 
 ## Installation & Setup
 
+### System Requirements
+
+1. `Ruby 2.7.2` and above is required to run the app. Make sure. you have Ruby installed on your machine. 
+
+### Installation
+
 
 
 
@@ -77,7 +83,13 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 #### Control Flowchart
 
-![HYD control flowchart](./docs/hyd_app_flow.png)
+*Original flowchart*
+
+![HYD control flowchart - original flowchart](./docs/hyd_app_flow.png)
+
+*Updated and simplified flowchart (to manage the time constraints)*
+
+-- updated flowchart here
 
 #### Pseudocode
 
@@ -128,16 +140,13 @@ When the user calls it a day, the last entry point is prompted to update how the
     - Just OK
     - Happy
 
-In the back-end, the user's 'today entry' is finalised and saved into the user's file.
+In the back-end, the user's 'today entry' is finalised and saved into the user's file to be processed for the 5 last log entries display.
 
-The last 5 entries of the log is displayed according to the date and their feelings before and after. The user can navigate to the next screen to move on.
+The last 5 entries of the log is displayed according to the date and their feelings before and after (in descending order). The user can navigate to the next screen to move on.
 
-If the user's current feeling is in the *alert/concern* category, a mental health advice and helpline will be displayed.
+If the user's current or updated feeling is in the *alert/concern* category, a general mental health tips, advice and helpline will be displayed.
 
-- The information is displayed to cater for the user's initial entry: sad / stress / anxious
-- A helpline number is also displayed subsequently
-
-A thank you for using the app is displayed with short copyright and credit info. The app will automatically exit in a few seconds.
+Subsequently a thank you for using the app is displayed with short copyright and credit info. If the user's feeling is not in the alert category, the thank you message is displayed immediately after they navigate from the log entries display section.
 
 #### HYD Data Structure Flowchart
 
@@ -170,15 +179,38 @@ The tone of the app is positive, chill and friendly. The chosen words throughout
 
 ### Credits
 
-Dad jokes materials are based on *David Williams's 'The Greatest, Most Awesome Collection of Dad Jokes ... Ever"*,  [amazon link](https://www.amazon.com/greatest-most-awesome-collection-Jokes-ebook/dp/B0894XJ1L4).
+Dad jokes materials are based on *David Williams's 'The Greatest, Most Awesome Collection of Dad Jokes ... Ever"*,  [Amazon link](https://www.amazon.com/greatest-most-awesome-collection-Jokes-ebook/dp/B0894XJ1L4).
 
 Mental health materials are based on [*Mental Health America*](https://mhanational.org/mental-health-month).
 
 ## Testing
 
-
+-- display testing screenshots here
 
 ## Project Development Documentation
+
+*Trello documentations – for project management*
+
+![](./docs/trello_01.png)
+
+![](./docs/trello_04.png)
+
+![](./docs/trello_05.png)
+
+More screenshots are available in the `./ppt/hyd_slides.pdf`
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
