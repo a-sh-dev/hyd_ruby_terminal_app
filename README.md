@@ -4,21 +4,18 @@ GitHub repo:
 
 `https://github.com/a-sh-dev/hyd_ruby_terminal_app`
 
---- place final product screenshot here
-
-
+![HYD app](./docs/hyd_ss_01.png)
 
 ## Installation & Setup
 
-### System Requirements
+1. `Ruby 2.7.2` and above is required to run the app. Make sure. you have Ruby installed on your local computer. Please refer to [*ruby-lang.org*](https://www.ruby-lang.org/en/documentation/installation/) for installation setup based on your operating system.
+2. Download HYD app zip file or clone from the GitHub repository, `https://github.com/a-sh-dev/hyd_ruby_terminal_app`
+3. For installation, please run Terminal and make sure you have `bundler` installed. To check, type `bundler -v `, if it's not installed, type `gem install bundler`.
+4. Then go to the HYD cloned folder or the downloaded zip extracted folder →  to the `src` folder and type `bundle install` to install all the gems and dependencies required to run the app.
+5. Simply type `./hyd_app.sh` to run the program. If permission is denied, please make sure to give access by entering `chmod +x ./hyd_app.sh`
+6. Otherwise, you can also enter `ruby hyd_app.rb` or `ruby hyd_app.rb -help` to get some more information through the command line arguments.
 
-1. `Ruby 2.7.2` and above is required to run the app. Make sure. you have Ruby installed on your machine. 
-
-### Installation
-
-
-
-
+# Software Development Plan & Process
 
 ## About
 
@@ -32,7 +29,7 @@ HYD is inspired by Joey's famous pickup line from the sitcom *Friends*. Although
 
 ![Joey - How you doin?](./docs/hyd_joey.gif)
 
-HYD's log-system feature is basically to record a log of how the user is doing (feeling) when and after using it, so they can track their own mental wellbeing. When needed, HYD also responds to the user by providing mental health advice and helpline as their call to action. 
+HYD's log-system's feature is to record a log of how the user is doing (feeling) when and after using it, so they can track their own mental wellbeing. When needed, HYD also responds to the user by providing mental health advice and helpline as their call to action. 
 
 ### Target Audience
 
@@ -45,22 +42,17 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 ##### Feature 1.1 – *Record* a log of *<u>how user is doing (feeling)</u>* before and after using the app
 
 - Log is created, saved and retrievable under a user's unique name/nickname to prevent potential duplicates and also to provide privacy
-- Log entry details include date, day and time of use
+- Log entry details include date, the user's feelings (before and after) and a timestamp for back-end purpose.
 - The last 5 entries of the log is displayed after the '*entertainment*' part and just before exiting the app
   - The log entries are for display only and are immutable once stored
-- Log keeps track on the user's feeling category before and after using the app and the app will respond to the user accordingly before it quits
-  - Two categories at the start of the app (before):
-    - *Alert/Concern*: sad / stress / angry
-    - *Normal*: bored / just ok / happy
-  - Feeling categories at the end of the app (after):
-    - *Alert/Concern*: worse
-    - Same-same (is considered as alert/concern category based on the first entry) 
-    - *Normal*: better
+- The log keeps track on the user's feeling category before and after using the app and the app will respond to the user accordingly before it quits:
+  - Two categories of the user's feelings:
+    - *Alert/Concern*: sad / stress / anxious
+    - *Normal*: bored / average / happy
 
 ##### Feature 1.2 – *Respond* to the user with how they're doing (feeling)
 
-- When the user's feeling is in the *Alert/Concern* category, after the log is displayed, a mental health facts and advice will be displayed subsequently before exiting the app, including a helpline number
-  - The mental health facts and advice will be catered according to the specific user's feeling: sad / stress / angry
+- When the user's feeling is in the *Alert/Concern* category, after the log is displayed, a mental health tips and advice will be displayed subsequently before exiting the app, including a helpline number
 
 #### Feature 2: Entertainment
 
@@ -68,12 +60,7 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 - Randomise dad jokes
   - The user can generate jokes multiple times
-  - Content can be spoken out (speech/speak features)
-  - User has the option to switch to the other entertainment
-  - Ideal back-end features:
-
-    - Possibility to deactivate the jokes that appear too much and then be re-activated at specific period of time, to reduce repetition
-    - Possibility for external contents update (API implementation)
+  - User has the option to switch to the other entertainment *(will be implemented at later version)*
 
 ##### Features 2.2 –*"How about an encouragement?"*
 
@@ -87,17 +74,21 @@ Ideally anyone in their 20s to above, who can read English, who is bored or havi
 
 ![HYD control flowchart - original flowchart](./docs/hyd_app_flow.png)
 
-*Updated and simplified flowchart (to manage the time constraints)*
-
--- updated flowchart here
-
-#### Pseudocode
+#### Pseudocode (Explaining the User's Journey)
 
 At the start of the app, a welcome and general app info is displayed.
 
 The user is asked to enter a unique name or nickname to be used to login next time and to access their log (at this point, password is not available yet).
 
 User then is greeted with their name and asked, "*How you doin (feeling), today?"* – Greetings will be displayed differently. For an existing user, a  "Welcome back!" is displayed and the next section follow immediately. For a new user, a basic information about the log system is introduced first.
+
+![HYD app - existing user](./docs/hyd_ss_02.png)
+
+↑  For an existing user
+
+![HYD app](./docs/hyd_ss_02a.png)
+
+↑  For a new user – displaying the response when their feeling is in the concern/alert category.
 
 The app also functions to track the user's feeling. There are two entry points for keeping track of 'today's entry', below is the first entry, and when they decide to 'call it a day' (end the app), the last one is prompted to update their feeling.
 
@@ -112,7 +103,7 @@ There are two categories of feelings that the user can choose (the two category 
   - Just OK
   - Happy
 
-The two main Entertainment info and options are displayed:
+The two main Entertainment info and options are displayed *(at this stage only the laugh is implemented)*:
 
 - ***How about a laugh?***
   - A (randomised) dad joke is displayed. Every dad joke is a set of short two parts. They are displayed between an interval of  3-5 few seconds
@@ -126,6 +117,14 @@ The two main Entertainment info and options are displayed:
     - More
     - How about a laugh? 
     - Call it a day
+
+![HYD app](./docs/hyd_ss_03c.png)
+
+↑   The display just before the randomise jokes method is called.
+
+![HYD app](./docs/hyd_ss_03a.png)
+
+↑  Randomised dad-jokes features
 
 When the user calls it a day, the last entry point is prompted to update how they're feeling, by displaying *"So, user_name... How you doing (feeling) now?"*. 
 
@@ -142,11 +141,27 @@ When the user calls it a day, the last entry point is prompted to update how the
 
 In the back-end, the user's 'today entry' is finalised and saved into the user's file to be processed for the 5 last log entries display.
 
+![HYD app](./docs/hyd_ss_03b.png)
+
+↑  Updating the user's feeling to finalise the log entry.
+
 The last 5 entries of the log is displayed according to the date and their feelings before and after (in descending order). The user can navigate to the next screen to move on.
+
+![HYD app](./docs/hyd_ss_04.png)
+
+↑  Displaying last 5 log entries in descending order.
 
 If the user's current or updated feeling is in the *alert/concern* category, a general mental health tips, advice and helpline will be displayed.
 
+![HYD app](./docs/hyd_ss_05.png)
+
+↑  Mentalhealth section is called when the app responds to the user's feeling that is in the concern/alert category.
+
+![HYD app](./docs/hyd_ss_06.png)
+
 Subsequently a thank you for using the app is displayed with short copyright and credit info. If the user's feeling is not in the alert category, the thank you message is displayed immediately after they navigate from the log entries display section.
+
+![HYD app](./docs/hyd_ss_07.png)
 
 #### HYD Data Structure Flowchart
 
@@ -183,9 +198,11 @@ Dad jokes materials are based on *David Williams's 'The Greatest, Most Awesome C
 
 Mental health materials are based on [*Mental Health America*](https://mhanational.org/mental-health-month).
 
-## Testing
+## Manual Testing
 
--- display testing screenshots here
+![Manual testing](./docs/manual_testing_ss.png)
+
+GoogleDoc manual testing  →  [*link*](https://docs.google.com/spreadsheets/d/1CeB3IPlXPpqn0gygOe_f6Kadn0fOROesdosJS93DpXo/edit?usp=sharing).
 
 ## Project Development Documentation
 
@@ -198,22 +215,6 @@ Mental health materials are based on [*Mental Health America*](https://mhanation
 ![](./docs/trello_05.png)
 
 More screenshots are available in the `./ppt/hyd_slides.pdf`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---

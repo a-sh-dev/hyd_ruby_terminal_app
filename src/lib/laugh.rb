@@ -76,7 +76,7 @@ class Laugh
 
   def randomise_jokes 
     # Pick a random hash set from @jokes_array (parsed json file)
-    random = @jokes_array[rand(0..50)]
+    random = @jokes_array[rand(0..49)]
     ask = div_up("#{random[:ask]}")
     ans = div_btm("#{random[:ans]}")
     

@@ -81,8 +81,8 @@ class User
     # compare user's input with 'alert' to respond    
     if alert.count(user_alert) == 1
       # call mhealth
-      @mhealth.respond(@user)
-      @mhealth.helpline(@user)
+      @mhealth.respond(@user_cap)
+      @mhealth.helpline(@user_cap)
     end
   end
 

@@ -27,6 +27,7 @@ when '-help'
   puts "  Crafted with ❤ by a-sh. © 2021"
   linebreak
 when '-start'
+  exit
 else
   puts "  Invalid option, type '-hyd' to start the app."
 end 
