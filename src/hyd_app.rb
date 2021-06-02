@@ -6,31 +6,29 @@ require_relative './lib/laugh'
 #* ARGV HANDLING 
 # --------------------------------------
 
-if ARGV.length > 0
-  flag, *rest = ARGV
-  ARGV.clear
-  case flag 
-  when '-help'
-    puts 
-    puts "  Hello! Welcome to How You Doin (HYD) app help & info section"
-    puts
-    puts "  There isn't much instructions to give to use the app,"
-    puts "  other than to just follow along the prompts."
-    puts 
-    puts "  When you're ready, please type '-hyd', or './hyd_app.sh'"
-    puts
-    puts "  Alternatively, you can type './hyd_app.sh', and make sure permission is allowed"
-    puts "  Type 'chmod +x hdy_app.sh to give permission. Hope you enjoy it!"
-    linebreak
-    puts "  For further info, please check the github README.md"
-    puts "  Part of Coder Academy Ruby T1A3 assingment."
-    puts "  Crafted with ❤ by a-sh. © 2021"
-    linebreak
-  when '-hyd'
-    ruby hyd_app.rb
-  else
-    puts "  Invalid option, type '-help', '-h', or '-hyd' to start the app."
-  end 
+flag, *rest = ARGV
+ARGV.clear
+
+case flag 
+when '-help'
+  puts 
+  puts "  Hello! Welcome to How You Doin (HYD) app help & info section"
+  puts
+  puts "  There isn't much instructions to give to use the app,"
+  puts "  other than to just follow along the prompts."
+  puts 
+  puts "  When you're ready, please type '-start', or './hyd_app.sh'"
+  puts
+  puts "  Alternatively, you can type './hyd_app.sh', and make sure permission is allowed"
+  puts "  Type 'chmod +x hdy_app.sh to give permission. Hope you enjoy it!"
+  linebreak
+  puts "  For further info, please check the github README.md"
+  puts "  Part of Coder Academy Ruby T1A3 assingment."
+  puts "  Crafted with ❤ by a-sh. © 2021"
+  linebreak
+when '-start'
+else
+  puts "  Invalid option, type '-hyd' to start the app."
 end 
 
 # --------------------------------------
