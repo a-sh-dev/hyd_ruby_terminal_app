@@ -15,7 +15,7 @@ class MHealth
     puts "    #{@tick} #{"Embrace".bold} your feelings      #{@tick} #{"Accept".bold} your feelings"
     linerow_yellow(74)
     wait
-    puts "    #{@tick} #{"Process your throughts".bold}."
+    puts "    #{@tick} #{"Process your thoughts".bold}."
     puts "        It's easy to feel overwhelmed with all you're feeling and thinking."
     puts "        Writing things down is one of the best way to do that."
     linerow_yellow(74)
